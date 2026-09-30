@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    --font-sans: 'Plus Jakarta Sans', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-serif: 'IBM Plex Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+
+    /* Permanent Dark Theme Canvas */
+    --bg-page: #080B11;
+    --bg-surface: #0E1422;
+    --bg-subtle: #141C2E;
+    --bg-banner: #000000;
+    
+    /* Crisp bright text tokens */
+    --text-primary: #FFFFFF;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+
+    --border-subtle: #1E293B;
+    --border-card: #28354D;
+
+    /* Iridescent Ribbon colors */
+    --ribbon-blue: #3B82F6;
+    --ribbon-indigo: #4F46E5;
+    --ribbon-purple: #8B5CF6;
+    --ribbon-violet: #A855F7;
+    --ribbon-cyan: #38BDF8;
+
+    --cce-primary: #FFFFFF;
+    --cce-accent-purple: #6366F1;
+    --cce-light-purple: #1E1B4B;
+
+    --outcome-allow: #059669;
+    --outcome-limit: #0D9488;
+    --outcome-hold: #D97706;
+    --outcome-escalate: #7C3AED;
+    --outcome-reject: #DC2626;
+
+    /* 43" Booth Mode enabled by default */
+    --booth-scale: 1.12;
+    font-size: 19px !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
+
+/* Glass Header in Dark Theme */
+.glass-header {
+  background: rgba(8, 11, 17, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid #1E293B;
+}
+
+/* Typography Helpers */
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+/* Pill Button styles in Dark Theme */
+.btn-pill-primary {
+  background-color: #6366F1;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 0.625rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+.btn-pill-primary:hover {
+  background-color: #4F46E5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-pill-secondary {
+  background-color: #0E1422;
+  color: #FFFFFF;
+  border: 1px solid #28354D;
+  border-radius: 9999px;
+  padding: 0.625rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  transition: all 0.2s ease;
+}
+.btn-pill-secondary:hover {
+  background-color: #141C2E;
+  border-color: #3B4A6B;
+}
+
+/* Text Selection */
+::selection {
+  background: #4F46E5;
+  color: #FFFFFF;
+}
