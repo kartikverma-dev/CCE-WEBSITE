@@ -102,18 +102,19 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
 
-        {/* Mobile menu trigger */}
-        <div className="flex items-center gap-2 sm:hidden">
+        {/* Mobile / Tablet menu trigger */}
+        <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={openPresenter}
-            className="p-2 rounded-lg border border-[#28354D] bg-[#0E1422] text-slate-200"
+            className="p-2 rounded-lg border border-[#28354D] bg-[#0E1422] text-slate-200 sm:hidden"
             title="Presenter Notes"
           >
             <Presentation className="w-4 h-4 text-indigo-400" />
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg border border-[#28354D] bg-[#0E1422] text-slate-200"
+            className="p-2 rounded-lg border border-[#28354D] bg-[#0E1422] text-slate-200 cursor-pointer"
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>

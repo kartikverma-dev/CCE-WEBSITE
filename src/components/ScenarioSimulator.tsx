@@ -566,9 +566,9 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                       {/* Animated comparison meter */}
                       <div className="space-y-4 pt-1">
                         <div>
-                          <div className="flex justify-between text-xs text-slate-200 font-bold mb-1.5">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-slate-200 font-bold mb-1.5">
                             <span>AI Recommends (Ungoverned):</span>
-                            <span className="text-rose-300 font-mono font-black text-sm">18% Borrow (Hospital SLA Breach!)</span>
+                            <span className="text-rose-300 font-mono font-black text-xs sm:text-sm">18% Borrow (Hospital SLA Breach!)</span>
                           </div>
                           <div className="h-4 w-full bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
                             <div className="h-full bg-rose-500 rounded-full w-[72%]" />
@@ -576,9 +576,9 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                         </div>
 
                         <div>
-                          <div className="flex justify-between text-xs text-slate-200 font-bold mb-1.5">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-slate-200 font-bold mb-1.5">
                             <span>CCE Governed Staged Limit:</span>
-                            <span className="text-teal-300 font-mono font-black text-sm">5% Staged (Hospital Headroom 97.2% Safe)</span>
+                            <span className="text-teal-300 font-mono font-black text-xs sm:text-sm">5% Staged (Hospital Headroom 97.2% Safe)</span>
                           </div>
                           <div className="h-4 w-full bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
                             <motion.div 

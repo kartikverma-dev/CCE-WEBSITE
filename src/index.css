@@ -40,9 +40,9 @@
     --outcome-escalate: #7C3AED;
     --outcome-reject: #DC2626;
 
-    /* 43" Booth Mode enabled by default */
+    /* Fluid font-size scaling: 16px on mobile up to 19px on desktop/booth displays */
     --booth-scale: 1.12;
-    font-size: 19px !important;
+    font-size: clamp(15.5px, 0.35vw + 14.5px, 19px) !important;
   }
 }
 

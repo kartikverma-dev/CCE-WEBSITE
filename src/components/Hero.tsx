@@ -166,7 +166,7 @@ export const Hero: React.FC = () => {
 
       {/* FULL-WIDTH SOLID JET BLACK BRAND/PARTNER BAND */}
       <div className="w-full bg-black text-white py-4.5 px-4 sm:px-8 border-y border-[#1E293B]">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6 text-xs sm:text-sm font-semibold tracking-wide">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-6 text-xs sm:text-sm font-semibold tracking-wide">
           <div className="flex items-center gap-2 opacity-90 hover:opacity-100 transition-opacity">
             <span className="text-indigo-400 font-mono text-base">✦</span>
             <span>O-RAN Telecom</span>
@@ -379,9 +379,9 @@ export const Hero: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.35 }}
-                  className="relative w-full h-[300px] flex items-center justify-center"
+                  className="relative w-full min-h-[340px] sm:min-h-[300px] flex items-center justify-center"
                 >
-                  <div className="absolute text-center max-w-sm z-10 pointer-events-none bg-[#080B11] p-5 rounded-2xl shadow-xl border border-rose-500/60">
+                  <div className="absolute text-center max-w-[280px] sm:max-w-sm z-10 pointer-events-none bg-[#080B11] p-4 sm:p-5 rounded-2xl shadow-xl border border-rose-500/60">
                     <span className="text-xs font-mono font-black text-rose-400 uppercase tracking-wider block mb-1">
                       ⚠️ Ungoverned Autonomous Execution
                     </span>
@@ -393,27 +393,27 @@ export const Hero: React.FC = () => {
                   <motion.div
                     animate={{ y: [-4, 6, -4], rotate: [-4, -2, -4] }}
                     transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute top-4 left-4 sm:left-12 p-3.5 bg-[#141C2E] rounded-xl shadow-lg border border-[#28354D] w-56 text-xs text-left"
+                    className="absolute top-2 left-2 sm:top-4 sm:left-12 p-3 sm:p-3.5 bg-[#141C2E] rounded-xl shadow-lg border border-[#28354D] w-48 sm:w-56 text-[11px] sm:text-xs text-left"
                   >
-                    <div className="font-mono text-indigo-400 font-bold text-xs">AI Recommendation</div>
+                    <div className="font-mono text-indigo-400 font-bold text-[10px] sm:text-xs">AI Recommendation</div>
                     <div className="font-bold text-white mt-1">"Reallocate +18% Bandwidth"</div>
                   </motion.div>
 
                   <motion.div
                     animate={{ y: [6, -6, 6], rotate: [5, 3, 5] }}
                     transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute top-6 right-4 sm:right-16 p-3.5 bg-rose-950/80 rounded-xl shadow-lg border border-rose-700/80 w-60 text-xs text-left"
+                    className="absolute top-4 right-2 sm:top-6 sm:right-16 p-3 sm:p-3.5 bg-rose-950/80 rounded-xl shadow-lg border border-rose-700/80 w-48 sm:w-60 text-[11px] sm:text-xs text-left"
                   >
-                    <div className="font-mono text-rose-400 font-bold text-xs">Unchecked SLA Rule</div>
+                    <div className="font-mono text-rose-400 font-bold text-[10px] sm:text-xs">Unchecked SLA Rule</div>
                     <div className="font-bold text-rose-100 mt-1">Hospital Penalty: $45,000/hr</div>
                   </motion.div>
 
                   <motion.div
                     animate={{ y: [-5, 7, -5], rotate: [-2, 1, -2] }}
                     transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-                    className="absolute bottom-6 left-6 sm:left-24 p-3.5 bg-amber-950/80 rounded-xl shadow-lg border border-amber-700/80 w-56 text-xs text-left"
+                    className="absolute bottom-2 left-2 sm:bottom-6 sm:left-24 p-3 sm:p-3.5 bg-amber-950/80 rounded-xl shadow-lg border border-amber-700/80 w-48 sm:w-56 text-[11px] sm:text-xs text-left hidden sm:block"
                   >
-                    <div className="font-mono text-amber-400 font-bold text-xs">Hardware Wear Telemetry</div>
+                    <div className="font-mono text-amber-400 font-bold text-[10px] sm:text-xs">Hardware Wear Telemetry</div>
                     <div className="font-bold text-amber-100 mt-1">Battery Cycles: 847 &gt; 800</div>
                   </motion.div>
                 </motion.div>
