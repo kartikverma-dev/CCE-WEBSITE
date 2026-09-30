@@ -47,19 +47,19 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           initial={{ opacity: 0, scale: 0.95, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
-          className="relative w-full max-w-xl bg-[#0E1422] border-2 border-[#1E293B] rounded-2xl shadow-2xl p-6 sm:p-8 z-10 text-white"
+          className="relative w-full max-w-xl bg-[#0E1422] border-2 border-[#1E293B] rounded-2xl shadow-2xl p-4 sm:p-8 z-10 text-white"
         >
           {/* Header */}
-          <div className="flex items-center justify-between pb-4 border-b border-[#1E293B]">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-indigo-950 text-indigo-300 border border-indigo-700">
-                <Mail className="w-5 h-5 stroke-[2.2]" />
+          <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#1E293B]">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="p-2 sm:p-2.5 rounded-xl bg-indigo-950 text-indigo-300 border border-indigo-700">
+                <Mail className="w-4.5 h-4.5 sm:w-5 sm:h-5 stroke-[2.2]" />
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl font-black text-white">
+                <h3 className="text-base sm:text-xl font-black text-white">
                   Connect with CredgeSol AI
                 </h3>
-                <p className="text-xs text-indigo-300 font-mono font-bold">
+                <p className="text-[11px] sm:text-xs text-indigo-300 font-mono font-bold">
                   Enterprise Decision Assurance Pilot
                 </p>
               </div>
@@ -67,14 +67,14 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
             <button
               onClick={onClose}
-              className="p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
+              className="p-1.5 sm:p-2 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
             >
               <X className="w-5 h-5 stroke-[2.5]" />
             </button>
           </div>
 
           {!submitted ? (
-            <form onSubmit={handleSubmit} className="mt-6 space-y-4 text-xs">
+            <form onSubmit={handleSubmit} className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-xs">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-slate-200 font-bold mb-1 text-xs">

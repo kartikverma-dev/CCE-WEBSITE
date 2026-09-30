@@ -106,23 +106,23 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
   }, []);
 
   return (
-    <section id="simulator" className="py-16 sm:py-24 bg-slate-950 text-slate-100 relative overflow-hidden transition-all duration-300">
+    <section id="simulator" className="py-10 sm:py-16 lg:py-24 bg-slate-950 text-slate-100 relative overflow-hidden transition-all duration-300">
       {/* Background ambient glow */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-teal-500/15 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-5 sm:mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-950 border-2 border-indigo-700 text-indigo-200 text-xs font-mono font-bold mb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-indigo-950 border-2 border-indigo-700 text-indigo-200 text-xs font-mono font-bold mb-2">
+              <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-cyan-400 animate-pulse" />
               <span>Interactive Decision Assurance Engine</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+            <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
               CCE Scenario Simulator
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-slate-200 font-medium max-w-2xl">
+            <p className="mt-1.5 sm:mt-2 text-xs sm:text-base text-slate-200 font-medium max-w-2xl leading-relaxed">
               Experience how CCE catches AI model blind spots, enforces enterprise constraints, and issues governed actions in real-time.
             </p>
           </div>
@@ -131,7 +131,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
             <StatusBadge status="SIMULATED" size="md" />
             <button
               onClick={() => setShowPresenterScript(!showPresenterScript)}
-              className="text-xs font-mono font-bold px-3.5 py-2 rounded-lg border-2 border-slate-700 bg-slate-900 text-slate-200 hover:text-white hover:border-slate-500 transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="text-xs font-mono font-bold px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg border-2 border-slate-700 bg-slate-900 text-slate-200 hover:text-white hover:border-slate-500 transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <Volume2 className="w-4 h-4 text-cyan-400" />
               <span>{showPresenterScript ? 'Hide Narration' : 'Show Narration'}</span>
@@ -140,8 +140,8 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
         </div>
 
         {/* Mandatory Illustrative Demo Warning Banner */}
-        <div className="mb-6 p-3.5 rounded-xl bg-slate-900 border-2 border-slate-700 flex items-center justify-between gap-3 text-xs text-slate-200 font-mono">
-          <div className="flex items-center gap-2.5">
+        <div className="mb-4 sm:mb-6 p-2.5 sm:p-3.5 rounded-xl bg-slate-900 border-2 border-slate-700 flex items-center justify-between gap-3 text-[11px] sm:text-xs text-slate-200 font-mono">
+          <div className="flex items-center gap-2">
             <Info className="w-4 h-4 text-cyan-400 shrink-0" />
             <span>
               <strong className="text-white">Illustrative Demo:</strong> Fixed deterministic outcomes. Not connected to production systems.
@@ -153,7 +153,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
         </div>
 
         {/* 1. Scenario Selector Tabs */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3.5 mb-5 sm:mb-8">
           {SCENARIOS.map((sc, idx) => {
             const isSelected = selectedScenarioIndex === idx;
             const icons = [Radio, BatteryCharging, CreditCard, ShieldAlert];
@@ -163,23 +163,23 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
               <button
                 key={sc.id}
                 onClick={() => switchScenario(idx)}
-                className={`p-4 rounded-xl text-left transition-all border-2 relative cursor-pointer ${
+                className={`p-2.5 sm:p-4 rounded-xl text-left transition-all border-2 relative cursor-pointer ${
                   isSelected
                     ? 'bg-slate-900 border-indigo-400 shadow-lg shadow-indigo-500/20'
                     : 'bg-slate-900/70 border-slate-700/80 hover:bg-slate-900 hover:border-slate-500'
                 }`}
               >
                 {isSelected && (
-                  <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-sm" />
+                  <span className="absolute top-2 right-2 sm:top-2.5 sm:right-2.5 w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-cyan-400 shadow-sm" />
                 )}
-                <div className="flex items-center gap-2 mb-2 text-xs font-mono text-slate-300 font-bold">
-                  <Icon className={`w-4 h-4 ${isSelected ? 'text-cyan-400' : 'text-slate-400'}`} />
+                <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-[11px] sm:text-xs font-mono text-slate-300 font-bold">
+                  <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isSelected ? 'text-cyan-400' : 'text-slate-400'}`} />
                   <span className="truncate">{sc.industry}</span>
                 </div>
-                <div className={`text-sm font-extrabold truncate ${isSelected ? 'text-white' : 'text-slate-100'}`}>
+                <div className={`text-xs sm:text-sm font-extrabold truncate ${isSelected ? 'text-white' : 'text-slate-100'}`}>
                   {sc.title}
                 </div>
-                <div className="text-xs text-cyan-200/90 font-medium truncate mt-1">
+                <div className="text-[10px] sm:text-xs text-cyan-200/90 font-medium truncate mt-0.5 sm:mt-1">
                   {sc.tagline}
                 </div>
               </button>
@@ -194,16 +194,16 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="mb-8 p-5 rounded-xl bg-indigo-950/80 border-2 border-indigo-700 text-xs overflow-hidden shadow-md"
+              className="mb-5 sm:mb-8 p-3.5 sm:p-5 rounded-xl bg-indigo-950/80 border-2 border-indigo-700 text-xs overflow-hidden shadow-md"
             >
               <div className="flex items-center justify-between text-indigo-200 font-mono font-bold mb-3">
                 <span className="flex items-center gap-2">
                   <Volume2 className="w-4 h-4 text-cyan-400" />
-                  <span className="text-sm">Presenter Talking Points ({scenario.industry})</span>
+                  <span className="text-xs sm:text-sm">Presenter Talking Points ({scenario.industry})</span>
                 </span>
-                <span className="text-xs text-slate-300 font-bold bg-indigo-900 px-2 py-0.5 rounded">Presenter Cue</span>
+                <span className="text-[10px] sm:text-xs text-slate-300 font-bold bg-indigo-900 px-2 py-0.5 rounded">Presenter Cue</span>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-slate-100">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-3.5 text-slate-100">
                 <div className="p-3 rounded-lg bg-slate-950 border border-indigo-700">
                   <strong className="text-cyan-300 text-xs uppercase tracking-wider block mb-1">1. The AI Setup:</strong>
                   <p className="text-xs leading-relaxed text-slate-200">{scenario.presenterNarration.setup}</p>
@@ -224,8 +224,8 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
         {/* Main Stage & Stepper Rail Container */}
         <div className="rounded-2xl border-2 border-slate-700 bg-slate-900/90 backdrop-blur-xl overflow-hidden shadow-2xl">
           {/* Stepper Progress Rail */}
-          <div className="p-4 sm:p-5 border-b-2 border-slate-700 bg-slate-950/90 flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-1 sm:pb-0 w-full sm:w-auto">
+          <div className="p-3 sm:p-5 border-b-2 border-slate-700 bg-slate-950/90 flex items-center justify-between flex-wrap gap-2.5 sm:gap-4">
+            <div className="flex items-center gap-1.5 sm:gap-3 overflow-x-auto pb-1 sm:pb-0 w-full sm:w-auto">
               {[
                 { num: 1, label: 'AI Proposal' },
                 { num: 2, label: 'Context & Blind Spots' },
@@ -240,7 +240,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                   <button
                     key={step.num}
                     onClick={() => setCurrentStep(step.num)}
-                    className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-mono transition-all shrink-0 cursor-pointer ${
+                    className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-mono transition-all shrink-0 cursor-pointer ${
                       isActive
                         ? 'bg-indigo-600 text-white font-extrabold border-2 border-indigo-400 shadow-md'
                         : isPassed
@@ -248,7 +248,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                         : 'bg-slate-900 text-slate-300 border-2 border-slate-700 hover:text-white font-bold'
                     }`}
                   >
-                    <span className="w-4 h-4 rounded-full flex items-center justify-center text-[11px] font-bold bg-black/40">
+                    <span className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full flex items-center justify-center text-[10px] sm:text-[11px] font-bold bg-black/40">
                       {isPassed ? '✓' : step.num}
                     </span>
                     <span>{step.label}</span>
@@ -258,10 +258,10 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
             </div>
 
             {/* Stepper Actions */}
-            <div className="flex items-center gap-2 ml-auto">
+            <div className="flex items-center gap-1.5 sm:gap-2 ml-auto w-full sm:w-auto justify-between sm:justify-end pt-1.5 sm:pt-0 border-t sm:border-t-0 border-slate-800">
               <button
                 onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                className={`px-3.5 py-2 rounded-lg border-2 text-xs font-mono font-bold flex items-center gap-1.5 transition-colors cursor-pointer ${
+                className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg border-2 text-[11px] sm:text-xs font-mono font-bold flex items-center gap-1.5 transition-colors cursor-pointer ${
                   isAutoPlaying
                     ? 'bg-amber-500/30 text-amber-200 border-amber-400'
                     : 'bg-slate-800 text-slate-200 border-slate-600 hover:bg-slate-700'
@@ -274,7 +274,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
               <button
                 onClick={handleReset}
                 title="Reset simulation step"
-                className="p-2 rounded-lg bg-slate-800 border-2 border-slate-600 text-slate-200 hover:text-white transition-colors cursor-pointer"
+                className="p-1.5 sm:p-2 rounded-lg bg-slate-800 border-2 border-slate-600 text-slate-200 hover:text-white transition-colors cursor-pointer"
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
@@ -282,7 +282,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
               <button
                 onClick={handlePrev}
                 disabled={currentStep === 1}
-                className="p-2 rounded-lg bg-slate-800 border-2 border-slate-600 text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-700 transition-colors cursor-pointer"
+                className="p-1.5 sm:p-2 rounded-lg bg-slate-800 border-2 border-slate-600 text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-slate-700 transition-colors cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
@@ -290,7 +290,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
               <button
                 onClick={handleNext}
                 disabled={currentStep === totalSteps}
-                className="px-4 py-2 rounded-lg bg-indigo-600 text-white font-bold text-xs disabled:opacity-30 disabled:cursor-not-allowed hover:bg-indigo-500 transition-all flex items-center gap-1.5 shadow-md cursor-pointer"
+                className="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-indigo-600 text-white font-bold text-xs disabled:opacity-30 disabled:cursor-not-allowed hover:bg-indigo-500 transition-all flex items-center gap-1.5 shadow-md cursor-pointer"
               >
                 <span>Next</span>
                 <ArrowRight className="w-4 h-4" />
@@ -299,7 +299,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
           </div>
 
           {/* Stepper Body / Dynamic Content */}
-          <div className="p-6 sm:p-8 min-h-[460px]">
+          <div className="p-4 sm:p-6 lg:p-8 min-h-[300px] sm:min-h-[460px]">
             <AnimatePresence mode="wait">
               {/* STEP 1: AI RECOMMENDATION */}
               {currentStep === 1 && (
@@ -309,52 +309,52 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -12 }}
                   transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <span className="text-xs font-mono text-indigo-300 font-bold uppercase tracking-wider">
+                      <span className="text-[11px] sm:text-xs font-mono text-indigo-300 font-bold uppercase tracking-wider">
                         Phase 01 / Autonomous AI Recommendation
                       </span>
-                      <h3 className="text-2xl font-black text-white mt-1">
+                      <h3 className="text-xl sm:text-2xl font-black text-white mt-0.5 sm:mt-1">
                         Model Proposes Operational Action
                       </h3>
                     </div>
-                    <span className="px-3.5 py-1.5 rounded-full bg-blue-950 border-2 border-blue-600 text-blue-200 text-xs font-mono font-bold">
+                    <span className="self-start sm:self-auto px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-blue-950 border-2 border-blue-600 text-blue-200 text-xs font-mono font-bold">
                       Confidence: {(scenario.aiRecommendation.confidence * 100).toFixed(0)}%
                     </span>
                   </div>
 
-                  <div className="p-6 rounded-xl bg-slate-950 border-2 border-slate-700">
-                    <div className="text-xs font-mono text-slate-300 font-semibold mb-1">
+                  <div className="p-4 sm:p-6 rounded-xl bg-slate-950 border-2 border-slate-700">
+                    <div className="text-[11px] sm:text-xs font-mono text-slate-300 font-semibold mb-1">
                       Originating Model: {scenario.aiRecommendation.modelType}
                     </div>
-                    <div className="text-xl sm:text-2xl font-extrabold text-cyan-200 mt-2">
+                    <div className="text-lg sm:text-2xl font-extrabold text-cyan-200 mt-1.5 sm:mt-2">
                       "{scenario.aiRecommendation.action}"
                     </div>
-                    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                      <div className="p-3.5 rounded-lg bg-slate-900 border border-slate-700">
+                    <div className="mt-3 sm:mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 text-xs">
+                      <div className="p-3 sm:p-3.5 rounded-lg bg-slate-900 border border-slate-700">
                         <span className="text-slate-300 font-bold block mb-1">Intended Optimization:</span>
-                        <span className="text-white font-medium text-sm leading-relaxed">
+                        <span className="text-white font-medium text-xs sm:text-sm leading-relaxed">
                           {scenario.aiRecommendation.intendedBenefit}
                         </span>
                       </div>
-                      <div className="p-3.5 rounded-lg bg-slate-900 border border-slate-700">
+                      <div className="p-3 sm:p-3.5 rounded-lg bg-slate-900 border border-slate-700">
                         <span className="text-slate-300 font-bold block mb-1">Requested Change:</span>
-                        <span className="text-indigo-200 font-mono font-bold text-base">
+                        <span className="text-indigo-200 font-mono font-bold text-sm sm:text-base">
                           {scenario.aiRecommendation.proposedMetricChange}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-xl bg-indigo-950/70 border-2 border-indigo-600 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <div className="text-sm text-slate-100 font-medium leading-relaxed">
+                  <div className="p-3.5 sm:p-5 rounded-xl bg-indigo-950/70 border-2 border-indigo-600 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+                    <div className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">
                       <strong className="text-white font-bold">The Problem:</strong> The model calculated its objective function accurately, but is completely unaware of enterprise SLAs and physical hazards.
                     </div>
                     <button
                       onClick={handleNext}
-                      className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shrink-0 flex items-center gap-1.5 cursor-pointer shadow-md"
+                      className="w-full sm:w-auto px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shrink-0 flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
                     >
                       <span>Inspect What It Missed</span>
                       <ArrowRight className="w-4 h-4" />
@@ -371,30 +371,30 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -12 }}
                   transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <span className="text-xs font-mono text-amber-300 font-bold uppercase tracking-wider">
+                      <span className="text-[11px] sm:text-xs font-mono text-amber-300 font-bold uppercase tracking-wider">
                         Phase 02 / Operational Context &amp; Blind Spots
                       </span>
-                      <h3 className="text-2xl font-black text-white mt-1">
+                      <h3 className="text-xl sm:text-2xl font-black text-white mt-0.5 sm:mt-1">
                         Critical Enterprise Realities AI Missed
                       </h3>
                     </div>
-                    <span className="px-3.5 py-1.5 rounded-full bg-rose-950 border-2 border-rose-600 text-rose-200 text-xs font-mono font-bold flex items-center gap-1.5">
+                    <span className="self-start sm:self-auto px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-rose-950 border-2 border-rose-600 text-rose-200 text-xs font-mono font-bold flex items-center gap-1.5">
                       <AlertTriangle className="w-4 h-4" />
                       <span>{scenario.blindSpots.length} Blind Spots Flagged</span>
                     </span>
                   </div>
 
                   {/* Blind spots list */}
-                  <div className="p-5 rounded-xl bg-rose-950/50 border-2 border-rose-600 space-y-2.5">
-                    <div className="text-xs font-mono uppercase tracking-wider text-rose-300 font-black mb-2">
+                  <div className="p-3.5 sm:p-5 rounded-xl bg-rose-950/50 border-2 border-rose-600 space-y-2 sm:space-y-2.5">
+                    <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-rose-300 font-black mb-1 sm:mb-2">
                       ⚠️ Critical Blind Spots Uncovered by CCE
                     </div>
                     {scenario.blindSpots.map((spot, i) => (
-                      <div key={i} className="flex items-start gap-3 text-sm text-slate-100 font-medium">
+                      <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-100 font-medium">
                         <span className="w-2 h-2 rounded-full bg-rose-400 mt-1.5 shrink-0" />
                         <span>{spot}</span>
                       </div>
@@ -402,25 +402,25 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                   </div>
 
                   {/* Context facts table */}
-                  <div className="space-y-2.5">
-                    <div className="text-xs font-mono text-slate-300 uppercase tracking-wider font-bold">
+                  <div className="space-y-2 sm:space-y-2.5">
+                    <div className="text-[11px] sm:text-xs font-mono text-slate-300 uppercase tracking-wider font-bold">
                       Reconciled Telemetry &amp; Context Registers
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 text-xs">
                       {scenario.contextFacts.map((fact, idx) => (
                         <div
                           key={idx}
-                          className={`p-3.5 rounded-xl border-2 ${
+                          className={`p-3 sm:p-3.5 rounded-xl border-2 ${
                             fact.isFlagged
                               ? 'bg-rose-950/60 border-rose-600'
                               : 'bg-slate-950 border-slate-700'
                           }`}
                         >
-                          <div className="flex items-center justify-between text-slate-300 text-xs mb-1">
+                          <div className="flex items-center justify-between text-slate-300 text-[11px] sm:text-xs mb-1">
                             <span className="font-medium">{fact.label}</span>
                             <span className="font-mono text-cyan-300 font-semibold">{fact.source}</span>
                           </div>
-                          <div className={`text-sm ${fact.isFlagged ? 'text-rose-200 font-black' : 'text-white font-bold'}`}>
+                          <div className={`text-xs sm:text-sm ${fact.isFlagged ? 'text-rose-200 font-black' : 'text-white font-bold'}`}>
                             {fact.value}
                           </div>
                         </div>
@@ -438,49 +438,49 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -12 }}
                   transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <span className="text-xs font-mono text-cyan-300 font-bold uppercase tracking-wider">
+                      <span className="text-[11px] sm:text-xs font-mono text-cyan-300 font-bold uppercase tracking-wider">
                         Phase 03 / Deterministic Policy Evaluation
                       </span>
-                      <h3 className="text-2xl font-black text-white mt-1">
+                      <h3 className="text-xl sm:text-2xl font-black text-white mt-0.5 sm:mt-1">
                         Hard Safety &amp; Contract Constraints Checked
                       </h3>
                     </div>
-                    <span className="px-3.5 py-1.5 rounded-full bg-cyan-950 border-2 border-cyan-600 text-cyan-200 text-xs font-mono font-bold">
+                    <span className="self-start sm:self-auto px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-cyan-950 border-2 border-cyan-600 text-cyan-200 text-xs font-mono font-bold">
                       Deterministic Rules
                     </span>
                   </div>
 
-                  <p className="text-sm text-slate-200 font-medium">
+                  <p className="text-xs sm:text-sm text-slate-200 font-medium">
                     CCE does not use an LLM or probabilistic model for verdicts. It evaluates deterministic enterprise policies, regulatory standards, and physical limits against verified context.
                   </p>
 
-                  <div className="space-y-3.5">
+                  <div className="space-y-2.5 sm:space-y-3.5">
                     {scenario.constraints.map((rule, idx) => (
                       <div
                         key={idx}
-                        className="p-5 rounded-xl bg-slate-950 border-2 border-slate-700 hover:border-slate-500 transition-colors shadow-sm"
+                        className="p-3.5 sm:p-5 rounded-xl bg-slate-950 border-2 border-slate-700 hover:border-slate-500 transition-colors shadow-sm"
                       >
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-2.5">
-                            <span className="font-mono text-xs font-extrabold text-indigo-200 bg-indigo-950 px-2.5 py-1 rounded border border-indigo-600">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-1.5">
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono text-[11px] sm:text-xs font-extrabold text-indigo-200 bg-indigo-950 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded border border-indigo-600">
                               {rule.code}
                             </span>
-                            <span className="text-base font-extrabold text-white">{rule.name}</span>
+                            <span className="text-sm sm:text-base font-extrabold text-white">{rule.name}</span>
                           </div>
-                          <span className={`text-xs font-mono px-2.5 py-0.5 rounded uppercase font-black ${
+                          <span className={`self-start sm:self-auto text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded uppercase font-black ${
                             rule.severity === 'CRITICAL' ? 'bg-rose-950 text-rose-200 border border-rose-500' : 'bg-amber-950 text-amber-200 border border-amber-500'
                           }`}>
                             {rule.severity} Severity
                           </span>
                         </div>
-                        <p className="text-sm text-slate-100 font-medium leading-relaxed mb-3">
+                        <p className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed mb-2.5 sm:mb-3">
                           {rule.description}
                         </p>
-                        <div className="p-3 rounded-lg bg-slate-900 border-2 border-teal-500/80 text-xs font-mono text-teal-200 font-bold">
+                        <div className="p-2.5 sm:p-3 rounded-lg bg-slate-900 border-2 border-teal-500/80 text-[11px] sm:text-xs font-mono text-teal-200 font-bold">
                           <strong className="text-white">Active Threshold:</strong> {rule.threshold}
                         </div>
                       </div>
@@ -497,44 +497,44 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -12 }}
                   transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <span className="text-xs font-mono text-teal-300 font-bold uppercase tracking-wider">
+                      <span className="text-[11px] sm:text-xs font-mono text-teal-300 font-bold uppercase tracking-wider">
                         Phase 04 / CCE Safe Envelope Solver
                       </span>
-                      <h3 className="text-2xl font-black text-white mt-1">
+                      <h3 className="text-xl sm:text-2xl font-black text-white mt-0.5 sm:mt-1">
                         Arbitration &amp; Constraint Solving
                       </h3>
                     </div>
-                    <span className="px-3.5 py-1.5 rounded-full bg-teal-950 border-2 border-teal-600 text-teal-200 text-xs font-mono font-bold flex items-center gap-1.5">
+                    <span className="self-start sm:self-auto px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-teal-950 border-2 border-teal-600 text-teal-200 text-xs font-mono font-bold flex items-center gap-1.5">
                       <ShieldCheck className="w-4 h-4" />
                       <span>Zero Hallucination</span>
                     </span>
                   </div>
 
-                  <div className="space-y-3.5">
+                  <div className="space-y-2.5 sm:space-y-3.5">
                     {scenario.evaluationSteps.map((evStep) => (
                       <div
                         key={evStep.stepNumber}
-                        className="p-4 rounded-xl bg-slate-950 border-2 border-slate-700 flex items-start justify-between gap-4"
+                        className="p-3.5 sm:p-4 rounded-xl bg-slate-950 border-2 border-slate-700 flex flex-col sm:flex-row items-start sm:items-start justify-between gap-2 sm:gap-4"
                       >
                         <div className="space-y-1">
-                          <div className="flex items-center gap-2.5">
-                            <span className="w-6 h-6 rounded-full bg-indigo-900 text-indigo-200 flex items-center justify-center text-xs font-mono font-black">
+                          <div className="flex items-center gap-2">
+                            <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-indigo-900 text-indigo-200 flex items-center justify-center text-[11px] sm:text-xs font-mono font-black shrink-0">
                               {evStep.stepNumber}
                             </span>
-                            <span className="text-sm font-bold text-white">
+                            <span className="text-xs sm:text-sm font-bold text-white">
                               {evStep.title}
                             </span>
                           </div>
-                          <p className="text-sm text-slate-100 pl-8 leading-relaxed font-medium">
+                          <p className="text-xs sm:text-sm text-slate-100 pl-7 sm:pl-8 leading-relaxed font-medium">
                             {evStep.summary}
                           </p>
                         </div>
-                        <div className="text-right shrink-0">
-                          <span className={`text-xs font-mono px-2.5 py-1 rounded font-bold ${
+                        <div className="text-left sm:text-right shrink-0 pl-7 sm:pl-0">
+                          <span className={`text-[10px] sm:text-xs font-mono px-2 py-0.5 sm:px-2.5 sm:py-1 rounded font-bold ${
                             evStep.status === 'PASSED'
                               ? 'bg-emerald-950 text-emerald-200 border border-emerald-500'
                               : evStep.status === 'LIMITATION_APPLIED'
@@ -543,7 +543,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                           }`}>
                             {evStep.status.replace('_', ' ')}
                           </span>
-                          <div className="text-xs font-mono text-cyan-300 font-bold mt-1.5">
+                          <div className="text-[10px] sm:text-xs font-mono text-cyan-300 font-bold mt-1 sm:mt-1.5">
                             {evStep.telemetryRef}
                           </div>
                         </div>
@@ -553,34 +553,34 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
 
                   {/* Visual Signature Moment: Telecom 18% vs 5% Capacity Slider */}
                   {scenario.id === 'telecom' && (
-                    <div className="p-5 rounded-xl bg-slate-950 border-2 border-teal-500 shadow-xl">
-                      <div className="flex items-center justify-between text-xs mb-3">
-                        <span className="font-mono text-cyan-300 font-extrabold text-sm">
+                    <div className="p-3.5 sm:p-5 rounded-xl bg-slate-950 border-2 border-teal-500 shadow-xl">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs mb-2.5 sm:mb-3 gap-1">
+                        <span className="font-mono text-cyan-300 font-extrabold text-xs sm:text-sm">
                           Visual Safeguard: The 18% → 5% Moment
                         </span>
-                        <span className="text-xs text-slate-200 font-bold bg-slate-800 px-2 py-0.5 rounded">
+                        <span className="self-start sm:self-auto text-[10px] sm:text-xs text-slate-200 font-bold bg-slate-800 px-2 py-0.5 rounded">
                           Hospital ICU Headroom Shield
                         </span>
                       </div>
 
                       {/* Animated comparison meter */}
-                      <div className="space-y-4 pt-1">
+                      <div className="space-y-3 sm:space-y-4 pt-1">
                         <div>
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-slate-200 font-bold mb-1.5">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-1 text-xs text-slate-200 font-bold mb-1">
                             <span>AI Recommends (Ungoverned):</span>
                             <span className="text-rose-300 font-mono font-black text-xs sm:text-sm">18% Borrow (Hospital SLA Breach!)</span>
                           </div>
-                          <div className="h-4 w-full bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
+                          <div className="h-3.5 sm:h-4 w-full bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
                             <div className="h-full bg-rose-500 rounded-full w-[72%]" />
                           </div>
                         </div>
 
                         <div>
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-slate-200 font-bold mb-1.5">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-1 text-xs text-slate-200 font-bold mb-1">
                             <span>CCE Governed Staged Limit:</span>
                             <span className="text-teal-300 font-mono font-black text-xs sm:text-sm">5% Staged (Hospital Headroom 97.2% Safe)</span>
                           </div>
-                          <div className="h-4 w-full bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
+                          <div className="h-3.5 sm:h-4 w-full bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
                             <motion.div 
                               initial={{ width: '72%' }}
                               animate={{ width: '20%' }}
@@ -603,32 +603,34 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -12 }}
                   transition={{ duration: 0.3 }}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-6"
                 >
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
-                      <span className="text-xs font-mono text-emerald-300 font-bold uppercase tracking-wider">
+                      <span className="text-[11px] sm:text-xs font-mono text-emerald-300 font-bold uppercase tracking-wider">
                         Phase 05 / Final Governed Decision &amp; Audit Emit
                       </span>
-                      <h3 className="text-2xl font-black text-white mt-1">
+                      <h3 className="text-xl sm:text-2xl font-black text-white mt-0.5 sm:mt-1">
                         Decision Assured with Audit Trail
                       </h3>
                     </div>
-                    <OutcomeBadge outcome={scenario.outcome.type} size="lg" />
+                    <div className="self-start sm:self-auto">
+                      <OutcomeBadge outcome={scenario.outcome.type} size="lg" />
+                    </div>
                   </div>
 
                   {/* Governed Action Banner */}
-                  <div className="p-6 rounded-xl bg-slate-950 border-2 border-teal-400 shadow-2xl">
-                    <div className="text-xs font-mono uppercase text-teal-300 font-black mb-2">
+                  <div className="p-4 sm:p-6 rounded-xl bg-slate-950 border-2 border-teal-400 shadow-2xl">
+                    <div className="text-[11px] sm:text-xs font-mono uppercase text-teal-300 font-black mb-1.5 sm:mb-2">
                       Governed Action Dispatched to Enterprise Actuator
                     </div>
-                    <div className="text-lg sm:text-xl font-black text-white">
+                    <div className="text-base sm:text-xl font-black text-white">
                       "{scenario.outcome.governedAction}"
                     </div>
-                    <p className="mt-3 text-sm text-slate-100 font-medium leading-relaxed">
+                    <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">
                       {scenario.outcome.explanation}
                     </p>
-                    <div className="mt-4 pt-3.5 border-t-2 border-slate-800 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <div className="mt-3.5 sm:mt-4 pt-3 sm:pt-3.5 border-t-2 border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
                       <span className="text-slate-300 font-mono font-medium">
                         Safeguard Enforced: <span className="text-teal-300 font-bold">{scenario.outcome.safeguardApplied}</span>
                       </span>
@@ -639,22 +641,22 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                   </div>
 
                   {/* Evidence Drawer Trigger Strip */}
-                  <div className="p-5 rounded-xl bg-indigo-950/80 border-2 border-indigo-600 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+                  <div className="p-3.5 sm:p-5 rounded-xl bg-indigo-950/80 border-2 border-indigo-600 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 shadow-lg">
                     <div>
-                      <div className="flex items-center gap-2.5">
-                        <FileCheck2 className="w-5 h-5 text-cyan-400" />
-                        <span className="text-base font-extrabold text-white">
+                      <div className="flex items-center gap-2">
+                        <FileCheck2 className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-cyan-400 shrink-0" />
+                        <span className="text-sm sm:text-base font-extrabold text-white">
                           Decision Evidence Record Generated
                         </span>
                       </div>
-                      <p className="text-xs text-slate-200 font-medium mt-1">
+                      <p className="text-[11px] sm:text-xs text-slate-200 font-medium mt-1">
                         Record ID: <span className="font-mono text-white font-bold">{scenario.evidence.decisionId}</span> (Deterministic hash &amp; telemetry snapshot)
                       </p>
                     </div>
 
                     <button
                       onClick={() => setIsEvidenceOpen(true)}
-                      className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-500 hover:to-teal-500 text-white font-extrabold text-xs shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02]"
+                      className="w-full sm:w-auto px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-teal-600 hover:from-indigo-500 hover:to-teal-500 text-white font-extrabold text-xs shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02]"
                     >
                       <Eye className="w-4 h-4" />
                       <span>Inspect Evidence Drawer</span>
