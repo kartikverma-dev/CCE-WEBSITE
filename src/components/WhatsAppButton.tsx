@@ -7,14 +7,16 @@ interface WhatsAppButtonProps {
 }
 
 export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
-  phoneNumber = '919876543210',
+  phoneNumber = '919818356705',
   defaultMessage = 'Hello CredgeSol AI team, I would like to learn more about Credge Clarity Engine (CCE) and request an enterprise briefing.',
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
+    const cleanNumber = phoneNumber.replace(/\D/g, '');
+    const formattedPhone = cleanNumber.length === 10 ? `91${cleanNumber}` : cleanNumber;
     const encodedMsg = encodeURIComponent(defaultMessage);
-    const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
+    const url = `https://wa.me/${formattedPhone}?text=${encodedMsg}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
