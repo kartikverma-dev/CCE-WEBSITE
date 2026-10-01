@@ -20,6 +20,7 @@ import { SCENARIOS } from '../data/scenarios';
 import type { Scenario } from '../types';
 import { OutcomeBadge, StatusBadge } from './StatusBadge';
 import { EvidenceDrawer } from './EvidenceDrawer';
+import { InteractiveParameterSlider } from './InteractiveParameterSlider';
 
 interface ScenarioSimulatorProps {
   initialScenarioIndex?: number;
@@ -240,7 +241,7 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                 { num: 1, label: 'AI Proposal' },
                 { num: 2, label: 'Context & Blind Spots' },
                 { num: 3, label: 'Policy Checks' },
-                { num: 4, label: 'CCE Evaluation' },
+                { num: 4, label: 'CCE Evaluation (Live Slider)', isInteractive: true },
                 { num: 5, label: 'Governed Verdict' },
               ].map((step) => {
                 const isActive = currentStep === step.num;
@@ -562,47 +563,10 @@ export const ScenarioSimulator: React.FC<ScenarioSimulatorProps> = ({
                     ))}
                   </div>
 
-                  {/* Visual Signature Moment: Telecom 18% vs 5% Capacity Slider */}
-                  {scenario.id === 'telecom' && (
-                    <div className="p-3.5 sm:p-5 rounded-xl bg-[#0A1017] border border-[#00AABB] shadow-xl">
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs mb-2.5 sm:mb-3 gap-1">
-                        <span className="font-mono text-[#12C9D3] font-extrabold text-xs sm:text-sm">
-                          Visual Safeguard: The 18% → 5% Moment
-                        </span>
-                        <span className="self-start sm:self-auto text-[10px] sm:text-xs text-slate-200 font-bold bg-[#152232] px-2 py-0.5 rounded border border-[#1E2D3E]">
-                          Hospital ICU Headroom Shield
-                        </span>
-                      </div>
-
-                      {/* Animated comparison meter */}
-                      <div className="space-y-3 sm:space-y-4 pt-1">
-                        <div>
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-1 text-xs text-slate-200 font-bold mb-1">
-                            <span>AI Recommends (Ungoverned):</span>
-                            <span className="text-[#D32F2F] font-mono font-black text-xs sm:text-sm">18% Borrow (Hospital SLA Breach!)</span>
-                          </div>
-                          <div className="h-3.5 sm:h-4 w-full bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
-                            <div className="h-full bg-[#D32F2F] rounded-full w-[72%]" />
-                          </div>
-                        </div>
-
-                        <div>
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5 sm:gap-1 text-xs text-slate-200 font-bold mb-1">
-                            <span>CCE Governed Staged Limit:</span>
-                            <span className="text-[#12C9D3] font-mono font-black text-xs sm:text-sm">5% Staged (Hospital Headroom 97.2% Safe)</span>
-                          </div>
-                          <div className="h-3.5 sm:h-4 w-full bg-slate-800 rounded-full overflow-hidden relative border border-slate-700">
-                            <motion.div 
-                              initial={{ width: '72%' }}
-                              animate={{ width: '20%' }}
-                              transition={{ duration: 1.2, ease: 'easeInOut' }}
-                              className="h-full bg-[#00AABB] rounded-full shadow-md" 
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
+                  {/* Interactive Real-Time Decision Boundary Solver (Supports all 4 scenarios) */}
+                  <div className="pt-2">
+                    <InteractiveParameterSlider scenarioId={scenario.id} />
+                  </div>
                 </motion.div>
               )}
 
