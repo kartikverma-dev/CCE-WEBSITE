@@ -3,44 +3,36 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
-
     --font-sans: 'Plus Jakarta Sans', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     --font-serif: 'IBM Plex Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
 
-    /* Permanent Dark Theme Canvas */
-    --bg-page: #080B11;
-    --bg-surface: #0E1422;
-    --bg-subtle: #141C2E;
-    --bg-banner: #000000;
-    
-    /* Crisp bright text tokens */
-    --text-primary: #FFFFFF;
-    --text-secondary: #CBD5E1;
-    --text-muted: #94A3B8;
+    /* Official CredgeSol Brand Color Palette */
+    --cce-primary-teal: #00AABB;   /* Solid section background ("AI Governance" band), primary buttons */
+    --cce-teal-deep: #039EA5;      /* "CLARITY ENGINE" & "GOVERNANCE" titles, icon strokes, headings */
+    --cce-logo-teal: #12C9D3;      /* CS logo mark, glow rings in graphics */
+    --cce-white: #FFFFFF;          /* Header, nav background, card surfaces, text on dark/teal */
+    --cce-offwhite: #FDFEFD;       /* Rounded cards, clean surface */
+    --cce-black: #000000;          /* Nav links, "The Core Problem" heading */
+    --cce-near-black: #1E1E1E;     /* Body copy */
+    --cce-hero-overlay: rgba(0, 0, 0, 0.60); /* 55-65% black overlay for dark slate look */
+    --cce-whatsapp: #008361;       /* Floating chat button */
+    --cce-alert-red: #D32F2F;      /* Small warning icons in Core Problem only */
 
-    --border-subtle: #1E293B;
-    --border-card: #28354D;
+    /* Dark Slate Canvas Foundation */
+    --bg-dark-slate: #0A1017;
+    --bg-slate-card: #0F1722;
+    --bg-slate-card-subtle: #152232;
+    --border-dark-slate: #1E2D3E;
 
-    /* Iridescent Ribbon colors */
-    --ribbon-blue: #3B82F6;
-    --ribbon-indigo: #4F46E5;
-    --ribbon-purple: #8B5CF6;
-    --ribbon-violet: #A855F7;
-    --ribbon-cyan: #38BDF8;
-
-    --cce-primary: #FFFFFF;
-    --cce-accent-purple: #6366F1;
-    --cce-light-purple: #1E1B4B;
-
-    --outcome-allow: #059669;
-    --outcome-limit: #0D9488;
+    /* Decision Outcome Colors */
+    --outcome-allow: #00AABB;
+    --outcome-limit: #039EA5;
     --outcome-hold: #D97706;
     --outcome-escalate: #7C3AED;
-    --outcome-reject: #DC2626;
+    --outcome-reject: #D32F2F;
 
-    /* Responsive font-size scaling: compact & airy on mobile, preserving full 19px scale on desktop displays */
+    /* Responsive font scale */
     --booth-scale: 1.12;
     font-size: 14.5px;
   }
@@ -66,8 +58,8 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-page);
-  color: var(--text-primary);
+  background-color: var(--cce-offwhite);
+  color: var(--cce-near-black);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -85,19 +77,20 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.35);
+  background: rgba(3, 158, 165, 0.35);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 116, 139, 0.6);
+  background: rgba(0, 170, 187, 0.6);
 }
 
-/* Glass Header in Dark Theme */
+/* Crisp White Header */
 .glass-header {
-  background: rgba(8, 11, 17, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid #1E293B;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 /* Typography Helpers */
@@ -108,27 +101,28 @@ body {
   font-family: var(--font-serif);
 }
 
-/* Pill Button styles in Dark Theme */
+/* Primary Teal Pill Button (#00AABB) */
 .btn-pill-primary {
-  background-color: #6366F1;
+  background-color: #00AABB;
   color: #FFFFFF;
   border-radius: 9999px;
   padding: 0.625rem 1.6rem;
   font-weight: 700;
   font-size: 0.8125rem;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 170, 187, 0.28);
 }
 .btn-pill-primary:hover {
-  background-color: #4F46E5;
+  background-color: #039EA5;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 170, 187, 0.38);
 }
 
+/* Secondary Button with Deep Teal Accent */
 .btn-pill-secondary {
-  background-color: #0E1422;
-  color: #FFFFFF;
-  border: 1px solid #28354D;
+  background-color: #FFFFFF;
+  color: #1E1E1E;
+  border: 1px solid #D1D5DB;
   border-radius: 9999px;
   padding: 0.625rem 1.6rem;
   font-weight: 700;
@@ -136,12 +130,26 @@ body {
   transition: all 0.2s ease;
 }
 .btn-pill-secondary:hover {
-  background-color: #141C2E;
-  border-color: #3B4A6B;
+  background-color: #F8FAFC;
+  border-color: #039EA5;
+  color: #039EA5;
+}
+
+/* WhatsApp Floating Button (#008361) */
+.btn-whatsapp-floating {
+  background-color: #008361;
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(0, 131, 97, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-whatsapp-floating:hover {
+  background-color: #007053;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 131, 97, 0.5);
 }
 
 /* Text Selection */
 ::selection {
-  background: #4F46E5;
+  background: #00AABB;
   color: #FFFFFF;
 }

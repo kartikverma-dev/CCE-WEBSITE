@@ -7,6 +7,7 @@ import { IndustriesSection } from './components/IndustriesSection';
 import { PillarsSection } from './components/PillarsSection';
 import { PresenterModal } from './components/PresenterModal';
 import { ContactModal } from './components/ContactModal';
+import { WhatsAppButton } from './components/WhatsAppButton';
 import { Footer } from './components/Footer';
 
 export function App() {
@@ -14,9 +15,9 @@ export function App() {
   const [isContactOpen, setIsContactOpen] = useState<boolean>(false);
   const [selectedScenarioIndex, setSelectedScenarioIndex] = useState<number>(0);
 
-  // Set dark mode and high-visibility scale permanently on mount
+  // Set presentation scale mode permanently on mount
   useEffect(() => {
-    document.documentElement.classList.add('dark', 'booth-mode');
+    document.documentElement.classList.add('booth-mode');
   }, []);
 
   // Global key bindings: P for Presenter notes
@@ -33,7 +34,7 @@ export function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--bg-page)] text-[var(--text-primary)]">
+    <div className="min-h-screen flex flex-col bg-[#FDFEFD] text-[#1E1E1E]">
       {/* Navigation Header */}
       <Header
         openPresenter={() => setIsPresenterOpen(true)}
@@ -42,10 +43,10 @@ export function App() {
 
       {/* Main Content Sections */}
       <main className="flex-1 w-full">
-        {/* 1. Hero Section: Iridescent Ribbon, One Platform & Chaos to Clarity */}
+        {/* 1. Hero Section: Iridescent Teal Ribbon, AI Governance Band & Chaos to Clarity */}
         <Hero />
 
-        {/* 2. Interactive Scenario Simulator (Telecom 18% -> 5% Hero, EV, Money Mule, SecOps) */}
+        {/* 2. Interactive Scenario Simulator (Decision Diagnostic Section) */}
         <ScenarioSimulator initialScenarioIndex={selectedScenarioIndex} />
 
         {/* 3. Five-Layer Architecture & Operational Lifecycle */}
@@ -61,6 +62,9 @@ export function App() {
         {/* 5. Enterprise Architectural Pillars */}
         <PillarsSection />
       </main>
+
+      {/* Floating WhatsApp Action Button (#008361) */}
+      <WhatsAppButton />
 
       {/* Footer */}
       <Footer

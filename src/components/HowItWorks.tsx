@@ -69,56 +69,56 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-12 sm:py-20 lg:py-28 bg-[#080B11] relative border-t border-[#1E293B]">
+    <section id="how-it-works" className="py-12 sm:py-20 lg:py-28 bg-[#FDFEFD] relative border-t border-gray-200 text-left">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-950 text-indigo-300 text-xs font-mono font-bold mb-3 border border-indigo-800">
-            <Layers className="w-4 h-4 text-indigo-400" />
-            <span>Architecture &amp; Core Principles</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 text-[#039EA5] text-xs font-mono font-bold mb-3 border border-teal-200">
+            <Layers className="w-4 h-4 text-[#039EA5]" />
+            <span>ARCHITECTURE &amp; CORE PRINCIPLES</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white">
+          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#000000]">
             How the Credge Clarity Engine Works
           </h2>
-          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-slate-300 font-medium">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-[#1E1E1E] font-medium">
             A deterministic five-layer assurance pipeline sitting between autonomous models and operational actuators.
           </p>
         </div>
 
         {/* Why CCE Governs the Decision, Not the Model (The Core Philosophy) */}
-        <div className="mb-10 sm:mb-16 p-4 sm:p-7 lg:p-9 rounded-2xl bg-[#0E1422] border-2 border-[#1E293B] shadow-md relative overflow-hidden">
+        <div className="mb-10 sm:mb-16 p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#FFFFFF] border border-gray-200 shadow-sm relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
             <div>
-              <span className="text-[11px] sm:text-xs font-mono font-black uppercase tracking-wider text-indigo-400">
+              <span className="text-[11px] sm:text-xs font-mono font-black uppercase tracking-wider text-[#039EA5]">
                 Core Design Philosophy
               </span>
-              <h3 className="text-xl sm:text-3xl font-black text-white mt-1">
+              <h3 className="text-xl sm:text-3xl font-black text-[#000000] mt-1">
                 "We govern the decision, not the model."
               </h3>
-              <p className="mt-2.5 sm:mt-3.5 text-xs sm:text-base text-slate-300 leading-relaxed font-normal">
+              <p className="mt-2.5 sm:mt-3.5 text-xs sm:text-base text-[#1E1E1E] leading-relaxed font-normal">
                 Traditional AI governance attempts to inspect neural network weights, fine-tune prompts, or detect hallucinations probabilistically. But in production operations—power grids, cell towers, financial ledgers, and hospitals—what matters is the <strong>physical or financial action</strong>.
               </p>
-              <p className="mt-2 text-xs sm:text-base text-slate-300 leading-relaxed font-normal">
+              <p className="mt-2 text-xs sm:text-base text-[#1E1E1E] leading-relaxed font-normal">
                 CCE leaves model development agile and unconstrained. It intercepts only the <strong>actuation proposal</strong>, applying deterministic enterprise guardrails so dangerous actions can never execute.
               </p>
             </div>
 
-            <div className="p-3.5 sm:p-6 rounded-xl bg-[#141C2E] border border-[#28354D] space-y-3 sm:space-y-4">
+            <div className="p-4 sm:p-6 rounded-2xl bg-gray-50/80 border border-gray-200 space-y-3 sm:space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-xs">
-                <span className="w-32 font-mono font-bold text-slate-400 shrink-0">Model Monitoring:</span>
-                <span className="text-slate-300 font-medium">Inspects drift, perplexity, and prompt tokens (probabilistic)</span>
+                <span className="w-32 font-mono font-bold text-gray-500 shrink-0">Model Monitoring:</span>
+                <span className="text-[#1E1E1E] font-medium">Inspects drift, perplexity, and prompt tokens (probabilistic)</span>
               </div>
-              <div className="h-px bg-[#28354D]" />
+              <div className="h-px bg-gray-200" />
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-xs">
-                <span className="w-32 font-mono font-black text-indigo-400 shrink-0">CCE Layer:</span>
-                <span className="font-bold text-white">
+                <span className="w-32 font-mono font-black text-[#039EA5] shrink-0">CCE Layer:</span>
+                <span className="font-bold text-[#000000]">
                   Governs real-world operational effects, SLAs, hardware safety &amp; legal liability (deterministic)
                 </span>
               </div>
-              <div className="h-px bg-[#28354D]" />
+              <div className="h-px bg-gray-200" />
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-xs">
-                <span className="w-32 font-mono font-black text-emerald-400 shrink-0">Guarantee:</span>
-                <span className="text-emerald-300 font-bold">
+                <span className="w-32 font-mono font-black text-[#00AABB] shrink-0">Guarantee:</span>
+                <span className="text-[#039EA5] font-bold">
                   Zero hallucinations, zero prompt leaks, 100% auditable evidence record
                 </span>
               </div>
@@ -138,24 +138,24 @@ export const HowItWorks: React.FC = () => {
                 <button
                   key={layer.num}
                   onClick={() => setActiveLayer(index)}
-                  className={`w-full p-3 sm:p-4 rounded-xl text-left transition-all border-2 flex items-center gap-3 sm:gap-4 cursor-pointer ${
+                  className={`w-full p-3.5 sm:p-4 rounded-2xl text-left transition-all border-2 flex items-center gap-3 sm:gap-4 cursor-pointer ${
                     isActive
-                      ? 'bg-[#141C2E] border-indigo-500 shadow-md text-white'
-                      : 'bg-[#0E1422] border-[#1E293B] hover:border-slate-600 text-slate-300'
+                      ? 'bg-white border-[#00AABB] shadow-md text-[#000000]'
+                      : 'bg-[#FFFFFF] border-gray-200 hover:border-[#039EA5] text-gray-700'
                   }`}
                 >
-                  <div className={`p-2 sm:p-2.5 rounded-lg shrink-0 ${isActive ? 'bg-indigo-950 text-indigo-300 font-bold' : 'bg-slate-900 text-slate-400'}`}>
-                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <div className={`p-2 sm:p-2.5 rounded-xl shrink-0 ${isActive ? 'bg-teal-50 text-[#039EA5] font-bold' : 'bg-gray-100 text-gray-500'}`}>
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
+                    <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
                       Layer {layer.num}
                     </div>
-                    <div className="text-xs sm:text-sm font-extrabold truncate text-white">
+                    <div className="text-xs sm:text-sm font-extrabold truncate text-[#000000]">
                       {layer.title}
                     </div>
                   </div>
-                  <ArrowRight className={`w-4 h-4 transition-transform ${isActive ? 'text-indigo-400 translate-x-1' : 'opacity-0'}`} />
+                  <ArrowRight className={`w-4 h-4 transition-transform ${isActive ? 'text-[#00AABB] translate-x-1' : 'opacity-0'}`} />
                 </button>
               );
             })}
@@ -168,41 +168,41 @@ export const HowItWorks: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="p-4 sm:p-7 lg:p-9 rounded-2xl bg-[#0E1422] border-2 border-[#1E293B] shadow-xl space-y-4 sm:space-y-6"
+              className="p-6 sm:p-8 lg:p-10 rounded-3xl bg-[#FFFFFF] border border-gray-200 shadow-sm space-y-5"
             >
               <div className="flex items-center justify-between flex-wrap gap-2">
-                <span className="text-[11px] sm:text-xs font-mono font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded bg-indigo-950 text-indigo-300 border border-indigo-800">
+                <span className="text-[11px] sm:text-xs font-mono font-bold px-3 py-1 rounded-full bg-teal-50 text-[#039EA5] border border-teal-200">
                   {layers[activeLayer].badge}
                 </span>
-                <span className="text-[11px] sm:text-xs font-mono font-bold text-slate-400">
+                <span className="text-[11px] sm:text-xs font-mono font-bold text-gray-400">
                   Layer {layers[activeLayer].num} / 05
                 </span>
               </div>
 
               <div>
-                <h3 className="text-xl sm:text-3xl font-black text-white">
+                <h3 className="text-xl sm:text-3xl font-black text-[#000000]">
                   {layers[activeLayer].title}
                 </h3>
-                <p className="text-xs sm:text-base text-indigo-300 font-bold mt-1">
+                <p className="text-xs sm:text-base text-[#039EA5] font-bold mt-1">
                   {layers[activeLayer].subtitle}
                 </p>
-                <p className="text-xs sm:text-base text-slate-200 mt-2 sm:mt-3.5 leading-relaxed font-normal">
+                <p className="text-xs sm:text-base text-[#1E1E1E] mt-2 sm:mt-3.5 leading-relaxed font-normal">
                   {layers[activeLayer].description}
                 </p>
               </div>
 
               {/* Ingested Inputs / Checks */}
               <div>
-                <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-slate-300 font-black block mb-2 sm:mb-2.5">
+                <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-gray-500 font-black block mb-2 sm:mb-2.5">
                   Key Reconciled Artifacts
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                   {layers[activeLayer].inputs.map((inp, idx) => (
                     <div
                       key={idx}
-                      className="p-2.5 sm:p-3 rounded-xl bg-[#141C2E] border border-[#28354D] text-xs font-bold text-white flex items-center gap-2 sm:gap-2.5"
+                      className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-xs font-bold text-[#1E1E1E] flex items-center gap-2 sm:gap-2.5"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-[#00AABB] shrink-0" />
                       <span>{inp}</span>
                     </div>
                   ))}
@@ -210,10 +210,10 @@ export const HowItWorks: React.FC = () => {
               </div>
 
               {/* Layer Operational Guarantee */}
-              <div className="p-3.5 sm:p-4.5 rounded-xl bg-teal-950/80 border border-teal-600 flex items-center gap-2.5 sm:gap-3.5">
-                <ShieldCheck className="w-5 h-5 text-teal-300 shrink-0" />
-                <div className="text-xs sm:text-sm text-teal-100 font-medium">
-                  <strong className="text-white font-bold">Architectural Guarantee:</strong> {layers[activeLayer].guarantee}
+              <div className="p-4 rounded-xl bg-teal-50 border border-teal-200 flex items-center gap-3">
+                <ShieldCheck className="w-5 h-5 text-[#039EA5] shrink-0" />
+                <div className="text-xs sm:text-sm text-[#007053] font-medium">
+                  <strong className="text-[#000000] font-bold">Architectural Guarantee:</strong> {layers[activeLayer].guarantee}
                 </div>
               </div>
             </motion.div>
@@ -221,17 +221,17 @@ export const HowItWorks: React.FC = () => {
         </div>
 
         {/* Operational Lifecycle Stepper */}
-        <div className="mt-10 sm:mt-16 pt-8 sm:pt-12 border-t border-[#1E293B]">
+        <div className="mt-12 sm:mt-18 pt-10 border-t border-gray-200">
           <div className="text-center max-w-xl mx-auto mb-6 sm:mb-8">
-            <h3 className="text-lg sm:text-xl font-black text-white">
+            <h3 className="text-lg sm:text-xl font-black text-[#000000]">
               The Autonomous Decision Lifecycle
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1">
+            <p className="text-xs sm:text-sm text-[#1E1E1E] font-medium mt-1">
               From unverified AI proposal to executed and audited enterprise action.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3.5 text-center text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3.5 text-center text-xs">
             {[
               { step: '1. Model Emit', desc: 'AI recommends an optimization' },
               { step: '2. Ingestion', desc: 'Sync telemetry & SLA state' },
@@ -240,11 +240,11 @@ export const HowItWorks: React.FC = () => {
               { step: '5. Actuation', desc: 'Pass, Stage or Quarantine' },
               { step: '6. Attestation', desc: 'Immutable evidence digest' },
             ].map((cycle, i) => (
-              <div key={i} className="p-2.5 sm:p-4 rounded-xl bg-[#0E1422] border border-[#1E293B] shadow-xs">
-                <div className="font-mono font-black text-indigo-400 mb-1 text-[11px] sm:text-xs">
+              <div key={i} className="p-3 sm:p-4 rounded-2xl bg-white border border-gray-200 shadow-xs hover:border-[#039EA5] transition-all">
+                <div className="font-mono font-black text-[#039EA5] mb-1 text-[11px] sm:text-xs">
                   {cycle.step}
                 </div>
-                <div className="text-slate-300 font-medium text-[10px] sm:text-[11px] leading-tight">
+                <div className="text-[#1E1E1E] font-medium text-[10px] sm:text-[11px] leading-tight">
                   {cycle.desc}
                 </div>
               </div>

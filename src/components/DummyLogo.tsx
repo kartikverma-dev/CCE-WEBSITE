@@ -4,12 +4,14 @@ interface DummyLogoProps {
   variant?: 'full' | 'icon-only' | 'monochrome';
   className?: string;
   size?: 'sm' | 'md' | 'lg';
+  theme?: 'light' | 'dark';
 }
 
 export const DummyLogo: React.FC<DummyLogoProps> = ({
   variant = 'full',
   className = '',
   size = 'md',
+  theme = 'dark',
 }) => {
   const heightClasses = {
     sm: 'h-7',
@@ -29,10 +31,12 @@ export const DummyLogo: React.FC<DummyLogoProps> = ({
     );
   }
 
+  const logoSrc = theme === 'light' ? '/logo-light.png' : '/logo.png';
+
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
       <img
-        src="/logo.png"
+        src={logoSrc}
         alt="Credge Clarity Engine"
         className={`${heightClasses} w-auto object-contain transition-transform duration-200 hover:scale-[1.02]`}
       />
