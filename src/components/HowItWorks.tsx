@@ -24,14 +24,14 @@ export const HowItWorks: React.FC = () => {
       badge: 'Multi-Source Sync',
       description: 'Before any AI recommendation is approved, CCE pulls the active ground truth: real-time telemetry streams, contract SLA databases, physical asset health registers, and dependencies that the originating model never saw.',
       inputs: ['Contract SLA Tables', 'Real-time Hardware Telemetry', 'Topological Dependencies', 'Statutory Priority Registers'],
-      guarantee: '100% ground-truth reconciliation before policy arbitration',
+      guarantee: 'Inputs are reconciled against ground truth before the policy check',
     },
     {
       num: '02',
       title: 'Deterministic Policy & Constraint Checks',
-      subtitle: 'Zero-Hallucination Rule Enforcement',
+      subtitle: 'Rule-Based Governance',
       icon: Scale,
-      badge: 'Zero Probabilistic Variance',
+      badge: 'Consistent, rule-based results',
       description: 'CCE evaluates unambiguous, deterministic rules created by domain engineers and compliance officers. No LLM or generative model makes the verdict. Rules are version-controlled, auditable, and mathematically deterministic.',
       inputs: ['Safety Thresholds (e.g. Max 42°C, 800 cycles)', 'Contractual Penalties ($45k/hr SLA breaches)', 'Emergency Life-Support Shields', 'AML Proportionality Standards'],
       guarantee: 'Deterministic execution with zero prompt injection vulnerability',
@@ -58,13 +58,13 @@ export const HowItWorks: React.FC = () => {
     },
     {
       num: '05',
-      title: 'Immutable Evidence & Audit Provenance',
+      title: 'Tamper-Resistant Evidence & Audit Provenance',
       subtitle: 'Cryptographic Proof for Enterprise Risk & Regulators',
       icon: FileCheck2,
       badge: 'Tamper-Evident Ledger',
-      description: 'Every decision produces a structured evidence record capturing input telemetry, model identity, rule citations, detected conflicts, and human sign-offs. Designed for instant compliance audits under EU AI Act and statutory frameworks.',
+      description: 'Every decision produces a structured evidence record capturing input telemetry, model identity, rule citations, detected conflicts, and human sign-offs. Designed to support compliance audits and statutory frameworks.',
       inputs: ['Deterministic State Digest', 'Rule Citation Provenance', 'Human Sign-off Timestamps', 'Actuator Verification Receipts'],
-      guarantee: 'Immutable, regulator-ready audit trails for every AI interaction',
+      guarantee: 'Audit trails designed to support regulator review',
     },
   ];
 
@@ -96,7 +96,7 @@ export const HowItWorks: React.FC = () => {
                 "We govern the decision, not the model."
               </h3>
               <p className="mt-2.5 sm:mt-3.5 text-xs sm:text-base text-[#1E1E1E] leading-relaxed font-normal">
-                Traditional AI governance attempts to inspect neural network weights, fine-tune prompts, or detect hallucinations probabilistically. But in production operations—power grids, cell towers, financial ledgers, and hospitals—what matters is the <strong>physical or financial action</strong>.
+                Traditional AI governance attempts to inspect neural network weights, fine-tune prompts, or detect hallucinations probabilistically. But in production operations - power grids, cell towers, financial ledgers, and hospitals - what matters is the <strong>physical or financial action</strong>.
               </p>
               <p className="mt-2 text-xs sm:text-base text-[#1E1E1E] leading-relaxed font-normal">
                 CCE leaves model development agile and unconstrained. It intercepts only the <strong>actuation proposal</strong>, applying deterministic enterprise guardrails so dangerous actions can never execute.
@@ -119,7 +119,7 @@ export const HowItWorks: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-xs">
                 <span className="w-32 font-mono font-black text-[#00AABB] shrink-0">Guarantee:</span>
                 <span className="text-[#039EA5] font-bold">
-                  Zero hallucinations, zero prompt leaks, 100% auditable evidence record
+                  Rule-based checks with an evidence record for each decision
                 </span>
               </div>
             </div>
@@ -147,15 +147,15 @@ export const HowItWorks: React.FC = () => {
                   <div className={`p-2 sm:p-2.5 rounded-xl shrink-0 ${isActive ? 'bg-teal-50 text-[#039EA5] font-bold' : 'bg-gray-100 text-gray-500'}`}>
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.2]" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400">
                       Layer {layer.num}
                     </div>
-                    <div className="text-xs sm:text-sm font-extrabold truncate text-[#000000]">
+                    <div className="text-xs sm:text-sm font-extrabold text-[#000000] leading-snug break-words">
                       {layer.title}
                     </div>
                   </div>
-                  <ArrowRight className={`w-4 h-4 transition-transform ${isActive ? 'text-[#00AABB] translate-x-1' : 'opacity-0'}`} />
+                  <ArrowRight className={`w-4 h-4 shrink-0 transition-transform ${isActive ? 'text-[#00AABB] translate-x-1' : 'opacity-0'}`} />
                 </button>
               );
             })}
@@ -238,7 +238,7 @@ export const HowItWorks: React.FC = () => {
               { step: '3. Constraint', desc: 'Deterministic policy match' },
               { step: '4. Envelope', desc: 'Calculate safe limit bounds' },
               { step: '5. Actuation', desc: 'Pass, Stage or Quarantine' },
-              { step: '6. Attestation', desc: 'Immutable evidence digest' },
+              { step: '6. Attestation', desc: 'Cryptographic evidence digest' },
             ].map((cycle, i) => (
               <div key={i} className="p-3 sm:p-4 rounded-2xl bg-white border border-gray-200 shadow-xs hover:border-[#039EA5] transition-all">
                 <div className="font-mono font-black text-[#039EA5] mb-1 text-[11px] sm:text-xs">
@@ -250,6 +250,62 @@ export const HowItWorks: React.FC = () => {
               </div>
             ))}
           </div>
+
+          {/* Visible Mapping Between Architecture Layers, Lifecycle Steps, and Simulator Stepper (Section 4.8) */}
+          <details className="mt-6 max-w-2xl mx-auto rounded-2xl bg-white border border-gray-200 p-4 text-xs shadow-xs text-left">
+            <summary className="cursor-pointer font-mono font-bold text-[#039EA5] hover:text-[#00AABB] transition-colors flex items-center justify-between min-h-[44px] py-1">
+              <span>View Process Sequence &amp; Architecture Mapping</span>
+              <span className="text-gray-400 font-normal text-[11px]">(Click to expand)</span>
+            </summary>
+            <div className="mt-3 pt-3 border-t border-gray-100 space-y-2 text-[#1E1E1E]">
+              <p className="text-gray-600 font-medium">
+                How the 6-step lifecycle connects to the 5 simulator demo steps and the 5 platform architecture layers:
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left font-mono text-[11px]">
+                  <thead>
+                    <tr className="border-b border-gray-200 text-gray-500">
+                      <th className="py-1.5 pr-2">Lifecycle Stage</th>
+                      <th className="py-1.5 px-2">Simulator Demo Step</th>
+                      <th className="py-1.5 pl-2">Platform Layer</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    <tr>
+                      <td className="py-1.5 pr-2 text-gray-700">1. Model Emit</td>
+                      <td className="py-1.5 px-2 font-bold text-[#039EA5]">Step 1: What the AI wanted to do</td>
+                      <td className="py-1.5 pl-2 text-gray-700">External AI Model</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1.5 pr-2 text-gray-700">2. Ingestion</td>
+                      <td className="py-1.5 px-2 font-bold text-[#039EA5]">Step 2: What the AI missed</td>
+                      <td className="py-1.5 pl-2 text-gray-700">Layer 1: Context Ingestion</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1.5 pr-2 text-gray-700">3. Constraint</td>
+                      <td className="py-1.5 px-2 font-bold text-[#039EA5]">Step 3: Which rules apply</td>
+                      <td className="py-1.5 pl-2 text-gray-700">Layer 2: Rule Enforcement</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1.5 pr-2 text-gray-700">4. Envelope</td>
+                      <td className="py-1.5 px-2 font-bold text-[#039EA5]">Step 4: What CCE worked out</td>
+                      <td className="py-1.5 pl-2 text-gray-700">Layer 3: Risk Envelope Solver</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1.5 pr-2 text-gray-700">5. Actuation</td>
+                      <td className="py-1.5 px-2 font-bold text-[#039EA5]">Step 5: What was decided</td>
+                      <td className="py-1.5 pl-2 text-gray-700">Layer 4: Governed Routing</td>
+                    </tr>
+                    <tr>
+                      <td className="py-1.5 pr-2 text-gray-700">6. Attestation</td>
+                      <td className="py-1.5 px-2 font-bold text-[#039EA5]">Evidence Drawer</td>
+                      <td className="py-1.5 pl-2 text-gray-700">Layer 5: Tamper-Resistant Ledger</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
     </section>

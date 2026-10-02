@@ -60,7 +60,7 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-            className="fixed inset-y-0 right-0 z-50 w-full max-w-2xl bg-[#0F1722] border-l-2 border-[#1E2D3E] shadow-2xl flex flex-col overflow-hidden text-white text-left"
+            className="fixed inset-y-0 right-0 z-50 w-full max-w-2xl bg-[#0F1722] border-l-2 border-[#1E2D3E] shadow-2xl flex flex-col h-full max-h-[100dvh] overflow-hidden text-white text-left"
           >
             {/* Header */}
             <div className="p-4 sm:p-6 border-b border-[#1E2D3E] flex items-center justify-between bg-[#0A1017]">
@@ -85,7 +85,7 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({
                 <button
                   onClick={handleCopy}
                   title="Copy raw evidence JSON"
-                  className="p-1.5 sm:p-2 px-2.5 sm:px-3 rounded-lg border border-[#1E2D3E] text-slate-200 hover:bg-[#152232] hover:text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="min-h-[44px] p-2 px-2.5 sm:px-3 rounded-lg border border-[#1E2D3E] text-slate-200 hover:bg-[#152232] hover:text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   {copied ? <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#008361]" /> : <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
                   <span>{copied ? 'Copied' : 'JSON'}</span>
@@ -93,13 +93,14 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({
                 <button
                   onClick={handlePrint}
                   title="Print evidence report"
-                  className="p-1.5 sm:p-2 px-2 sm:px-2.5 rounded-lg border border-[#1E2D3E] text-slate-200 hover:bg-[#152232] hover:text-white text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer hidden sm:flex"
+                  className="min-h-[44px] p-2 px-2 sm:px-2.5 rounded-lg border border-[#1E2D3E] text-slate-200 hover:bg-[#152232] hover:text-white text-xs font-bold flex items-center gap-1 transition-colors cursor-pointer hidden sm:flex"
                 >
                   <Printer className="w-4 h-4" />
                 </button>
                 <button
                   onClick={onClose}
-                  className="p-1.5 sm:p-2 rounded-lg hover:bg-[#152232] text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  aria-label="Close evidence drawer"
+                  className="min-h-[44px] min-w-[44px] p-2 rounded-xl bg-[#152232] hover:bg-[#1E2D3E] text-slate-200 hover:text-white flex items-center justify-center transition-colors cursor-pointer border border-[#1E2D3E]"
                 >
                   <X className="w-5 h-5 stroke-[2.5]" />
                 </button>
@@ -132,12 +133,20 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({
               {/* Provenance Metadata Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 text-xs">
                 <div className="p-3 sm:p-3.5 rounded-xl border border-[#1E2D3E] bg-[#152232]">
-                  <div className="flex items-center gap-1.5 text-slate-400 font-mono font-bold mb-1">
-                    <Clock className="w-3.5 h-3.5 text-[#12C9D3]" />
-                    <span>Evaluation Timestamp</span>
+                  <div className="flex items-center justify-between gap-1 text-slate-400 font-mono font-bold mb-1">
+                    <div className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-[#12C9D3]" />
+                      <span>Sample Evaluation Time</span>
+                    </div>
+                    <span className="text-[10px] uppercase font-bold text-[#12C9D3] bg-[#0A1017] px-1.5 py-0.5 rounded border border-[#039EA5]/40">
+                      Simulated
+                    </span>
                   </div>
                   <div className="font-mono text-white font-extrabold text-[11px] sm:text-xs">
                     {evidence.timestamp}
+                  </div>
+                  <div className="text-[10px] text-slate-400 font-mono mt-1">
+                    Sample time (Illustrative demo record)
                   </div>
                 </div>
 
@@ -242,7 +251,7 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({
                 <div className="flex items-center justify-between text-xs font-mono text-slate-300 font-bold mb-1.5">
                   <span className="flex items-center gap-1.5">
                     <Hash className="w-3.5 h-3.5 text-[#12C9D3]" />
-                    <span>Simulated Evidence Digest</span>
+                    <span>Evidence digest</span>
                   </span>
                   <StatusBadge status="SIMULATED" size="sm" />
                 </div>
@@ -262,7 +271,7 @@ export const EvidenceDrawer: React.FC<EvidenceDrawerProps> = ({
               </span>
               <button
                 onClick={onClose}
-                className="btn-pill-primary cursor-pointer text-xs"
+                className="btn-pill-primary min-h-[44px] px-6 py-2.5 cursor-pointer text-xs font-bold flex items-center justify-center"
               >
                 Close Drawer
               </button>

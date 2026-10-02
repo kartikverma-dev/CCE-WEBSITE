@@ -28,8 +28,8 @@ const CONFIGS: Record<string, SliderConfig> = {
     safeThreshold: 5,
     ruleCode: 'RULE-TEL-2024-09',
     ruleName: 'Emergency Hospital Slicing Protection',
-    breachConsequence: (v) => `Trauma Hospital ICU Headroom drops to ${(100 - v * 1.5).toFixed(1)}% (< 95% SLA) — $45,000/hr SLA penalty breach!`,
-    safeBenefit: (v) => `Hospital Headroom guaranteed at ${(100 - v * 0.56).toFixed(1)}% (Safe) — Video QoS safely boosted`,
+    breachConsequence: (v) => `Trauma Hospital ICU Headroom drops to ${(100 - v * 1.5).toFixed(1)}% (< 95% SLA) - $45,000/hr SLA penalty breach!`,
+    safeBenefit: (v) => `Hospital Headroom guaranteed at ${(100 - v * 0.56).toFixed(1)}% (Safe) - Video QoS safely boosted`,
     presets: [
       { label: '4% (Safe Range)', value: 4 },
       { label: '18% (Hero AI Surge)', value: 18 },
@@ -46,8 +46,8 @@ const CONFIGS: Record<string, SliderConfig> = {
     safeThreshold: 90,
     ruleCode: 'RULE-EV-2026-BATT-04',
     ruleName: 'Pack Thermal Runaway Ceiling',
-    breachConsequence: (v) => `Cell temperature hits ${(36 + v * 0.045).toFixed(1)}°C (> 42°C limit) — Thermal runaway alert & OEM warranty voided!`,
-    safeBenefit: () => 'Cell temperature bounded at 39.4°C — 847-cycle aged pack protected with active thermal dissipation',
+    breachConsequence: (v) => `Cell temperature hits ${(36 + v * 0.045).toFixed(1)}°C (> 42°C limit) - Thermal runaway alert & OEM warranty voided!`,
+    safeBenefit: () => 'Cell temperature bounded at 39.4°C - 847-cycle aged pack protected with active thermal dissipation',
     presets: [
       { label: '75 kW (Safe Thermal)', value: 75 },
       { label: '180 kW (AI Proposal)', value: 180 },
@@ -64,8 +64,8 @@ const CONFIGS: Record<string, SliderConfig> = {
     safeThreshold: 4,
     ruleCode: 'RULE-AML-PROP-03',
     ruleName: 'Statutory Proportionality Standard',
-    breachConsequence: (v) => `${v} accounts frozen without forensic proof — 98% legitimate customers blocked (Regulatory appeal risk)`,
-    safeBenefit: () => 'Surgically ring-fences 4 verified mule intermediary nodes — 416 legitimate transactions clear without disruption',
+    breachConsequence: (v) => `${v} accounts frozen without forensic proof - 98% legitimate customers blocked (Regulatory appeal risk)`,
+    safeBenefit: () => 'Surgically ring-fences 4 verified mule intermediary nodes - 416 legitimate transactions clear without disruption',
     presets: [
       { label: '4 Accounts (Targeted Ring)', value: 4 },
       { label: '150 Accounts (Sub-Cluster)', value: 150 },
@@ -82,8 +82,8 @@ const CONFIGS: Record<string, SliderConfig> = {
     safeThreshold: 1,
     ruleCode: 'RULE-MED-SECOPS-11',
     ruleName: 'Life-Support Network Immunity Protocol',
-    breachConsequence: (v) => `${v} bedside Ethernet ports severed — ICU ventilators & cardiac monitors lose telemetry contact!`,
-    safeBenefit: () => 'Single infected HVAC telemetry port isolated — Bedside life-support systems maintain 100% uptime',
+    breachConsequence: (v) => `${v} bedside Ethernet ports severed - ICU ventilators & cardiac monitors lose telemetry contact!`,
+    safeBenefit: () => 'Single infected HVAC telemetry port isolated - Bedside life-support systems maintain 100% uptime',
     presets: [
       { label: '1 Port (Surgical HVAC Filter)', value: 1 },
       { label: '8 Ports (Zone Quarantine)', value: 8 },
@@ -142,9 +142,10 @@ export const InteractiveParameterSlider: React.FC<InteractiveParameterSliderProp
           <button
             onClick={() => setVal(config.defaultValue)}
             title="Reset slider to default"
-            className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-[#152232] transition-colors cursor-pointer"
+            aria-label="Reset slider to default"
+            className="min-w-[44px] min-h-[44px] p-2 rounded-xl text-slate-300 hover:text-white bg-[#0F1722] hover:bg-[#152232] border border-[#1E2D3E] flex items-center justify-center transition-colors cursor-pointer"
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <RotateCcw className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -161,7 +162,7 @@ export const InteractiveParameterSlider: React.FC<InteractiveParameterSliderProp
         </div>
 
         {/* Range Slider Track */}
-        <div className="relative pt-2 pb-3">
+        <div className="relative pt-3 pb-3">
           <input
             type="range"
             min={config.min}
@@ -169,7 +170,7 @@ export const InteractiveParameterSlider: React.FC<InteractiveParameterSliderProp
             step={config.step}
             value={val}
             onChange={(e) => setVal(Number(e.target.value))}
-            className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#00AABB]"
+            className="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#00AABB]"
           />
 
           {/* SLA Threshold Marker Pin */}
@@ -185,7 +186,7 @@ export const InteractiveParameterSlider: React.FC<InteractiveParameterSliderProp
         </div>
 
         {/* Quick Presets */}
-        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-0.5">
+        <div className="flex flex-wrap items-center gap-2 pt-1">
           <span className="text-[10px] font-mono text-slate-400 uppercase font-bold mr-1">
             Presets:
           </span>
@@ -193,7 +194,7 @@ export const InteractiveParameterSlider: React.FC<InteractiveParameterSliderProp
             <button
               key={idx}
               onClick={() => setVal(preset.value)}
-              className={`px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-mono font-bold transition-all cursor-pointer border ${
+              className={`min-h-[40px] px-3 py-1.5 rounded-lg text-[11px] font-mono font-bold transition-all cursor-pointer border flex items-center justify-center ${
                 val === preset.value
                   ? 'bg-[#00AABB] text-white border-[#12C9D3] shadow-xs'
                   : 'bg-[#0F1722] text-slate-300 border-[#1E2D3E] hover:border-[#039EA5]'

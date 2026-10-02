@@ -37,7 +37,7 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
           initial={{ opacity: 0, scale: 0.95, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
-          className="relative w-full max-w-3xl bg-[#0F1722] border-2 border-[#1E2D3E] rounded-3xl shadow-2xl p-6 sm:p-8 z-10 max-h-[90vh] overflow-y-auto text-white text-left"
+          className="relative w-full max-w-3xl bg-[#0F1722] border-2 border-[#1E2D3E] rounded-3xl shadow-2xl p-5 sm:p-8 z-10 max-h-[90dvh] overflow-y-auto text-white text-left"
         >
           {/* Header */}
           <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-[#1E2D3E]">
@@ -58,7 +58,8 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
 
             <button
               onClick={onClose}
-              className="p-1.5 sm:p-2 rounded-lg hover:bg-[#152232] text-slate-300 hover:text-white transition-colors cursor-pointer"
+              aria-label="Close presenter guide"
+              className="min-h-[44px] min-w-[44px] p-2 rounded-xl bg-[#152232] hover:bg-[#1E2D3E] text-slate-200 hover:text-white flex items-center justify-center transition-colors cursor-pointer border border-[#1E2D3E]"
             >
               <X className="w-5 h-5 stroke-[2.5]" />
             </button>
@@ -86,32 +87,38 @@ export const PresenterModal: React.FC<PresenterModalProps> = ({
                 <div className="p-3 rounded-xl bg-[#152232] border border-[#1E2D3E] flex items-start gap-2.5 sm:gap-3">
                   <span className="font-mono font-black text-[#12C9D3] text-sm">01</span>
                   <div className="text-slate-100 text-xs sm:text-sm">
-                    <strong className="text-white font-bold">Show the AI proposal:</strong> "A dynamic traffic RL model sees a packed stadium and wants to move 18% of capacity to video streaming."
+                    <strong className="text-white font-bold">What the AI wanted to do:</strong> "A dynamic traffic RL model sees a packed stadium and wants to move 18% of capacity to video streaming."
                   </div>
                 </div>
                 <div className="p-3 rounded-xl bg-[#152232] border border-[#1E2D3E] flex items-start gap-2.5 sm:gap-3">
                   <span className="font-mono font-black text-[#12C9D3] text-sm">02</span>
                   <div className="text-slate-100 text-xs sm:text-sm">
-                    <strong className="text-white font-bold">Reveal the blind spot:</strong> "What it didn't know is the same sector powers the Metropolitan Trauma Hospital ICU telemetry slice, carrying a $45,000/hour SLA breach fine."
+                    <strong className="text-white font-bold">What the AI missed:</strong> "What it didn't know is the same sector powers the Metropolitan Trauma Hospital ICU telemetry slice, carrying a $45,000/hour SLA breach fine."
                   </div>
                 </div>
                 <div className="p-3 rounded-xl bg-[#152232] border border-[#1E2D3E] flex items-start gap-2.5 sm:gap-3">
                   <span className="font-mono font-black text-[#12C9D3] text-sm">03</span>
                   <div className="text-slate-100 text-xs sm:text-sm">
-                    <strong className="text-white font-bold">The CCE Safe Envelope:</strong> "Instead of blocking everything or causing an outage, CCE limits the reallocation to 5% staged capacity. The hospital stays safe, and video gets a boost."
+                    <strong className="text-white font-bold">Which rules apply:</strong> "Fixed safety rules, contract penalties, and statutory standards evaluate deterministically against verified context."
                   </div>
                 </div>
                 <div className="p-3 rounded-xl bg-[#152232] border border-[#1E2D3E] flex items-start gap-2.5 sm:gap-3">
                   <span className="font-mono font-black text-[#12C9D3] text-sm">04</span>
                   <div className="text-slate-100 text-xs sm:text-sm">
-                    <strong className="text-white font-bold">Open the Evidence Drawer:</strong> "Press 'E' or click 'Inspect Evidence' to show the immutable record with rule references and assigned NOC role."
+                    <strong className="text-white font-bold">What CCE worked out:</strong> "Instead of blocking everything or causing an outage, CCE limits the reallocation to 5% staged capacity. The hospital stays safe, and video gets a boost."
+                  </div>
+                </div>
+                <div className="p-3 rounded-xl bg-[#152232] border border-[#1E2D3E] flex items-start gap-2.5 sm:gap-3">
+                  <span className="font-mono font-black text-[#12C9D3] text-sm">05</span>
+                  <div className="text-slate-100 text-xs sm:text-sm">
+                    <strong className="text-white font-bold">What was decided:</strong> "Enforces the 5% staged limit, alerts the Network Operations Director, and generates a tamper-resistant record of the decision."
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Keyboard Shortcuts Matrix */}
-            <div>
+            {/* Keyboard Shortcuts Matrix (Hidden on touch devices) */}
+            <div className="shortcut-hint">
               <div className="flex items-center gap-2 text-white font-black text-sm mb-3">
                 <Keyboard className="w-4 h-4 text-[#12C9D3]" />
                 <span>Hardware Keyboard Shortcuts</span>

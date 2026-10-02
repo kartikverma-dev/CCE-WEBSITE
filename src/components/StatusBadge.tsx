@@ -1,6 +1,6 @@
 import React from 'react';
 import type { StatusBadgeType, OutcomeType } from '../types';
-import { CheckCircle2, AlertTriangle, ShieldAlert, PauseCircle, Clock } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, ShieldAlert, PauseCircle, UserCheck } from 'lucide-react';
 
 interface StatusBadgeProps {
   status: StatusBadgeType;
@@ -44,34 +44,34 @@ export const OutcomeBadge: React.FC<OutcomeBadgeProps> = ({
 }) => {
   const meta = {
     ALLOW: {
-      label: 'ASSURED / ALLOW',
+      label: 'Allowed',
+      code: 'ALLOW',
       icon: CheckCircle2,
       style: 'bg-emerald-100 text-emerald-950 border-emerald-500 dark:bg-emerald-950 dark:text-emerald-200 dark:border-emerald-400',
-      dot: 'bg-emerald-600',
     },
     LIMIT: {
-      label: 'LIMIT / STAGED',
-      icon: AlertTriangle,
+      label: 'Allowed with a safe limit',
+      code: 'LIMIT / STAGED',
+      icon: ShieldCheck,
       style: 'bg-teal-100 text-teal-950 border-teal-500 dark:bg-teal-950 dark:text-teal-200 dark:border-teal-400',
-      dot: 'bg-teal-600',
     },
     HOLD: {
-      label: 'HOLD / REVIEW',
+      label: 'Paused for human review',
+      code: 'HOLD / REVIEW',
       icon: PauseCircle,
       style: 'bg-amber-100 text-amber-950 border-amber-500 dark:bg-amber-950 dark:text-amber-200 dark:border-amber-400',
-      dot: 'bg-amber-600',
     },
     ESCALATE: {
-      label: 'ESCALATE / ROUTED',
-      icon: Clock,
+      label: 'Sent to a person to decide',
+      code: 'ESCALATE / ROUTED',
+      icon: UserCheck,
       style: 'bg-purple-100 text-purple-950 border-purple-500 dark:bg-purple-950 dark:text-purple-200 dark:border-purple-400',
-      dot: 'bg-purple-600',
     },
     REJECT: {
-      label: 'REJECT / BLOCK',
+      label: 'Not allowed',
+      code: 'REJECT / BLOCK',
       icon: ShieldAlert,
       style: 'bg-rose-100 text-rose-950 border-rose-500 dark:bg-rose-950 dark:text-rose-200 dark:border-rose-400',
-      dot: 'bg-rose-600',
     },
   }[outcome];
 
@@ -86,9 +86,15 @@ export const OutcomeBadge: React.FC<OutcomeBadgeProps> = ({
   return (
     <span
       className={`inline-flex items-center font-mono tracking-wide rounded-lg border-2 ${meta.style} ${sizeClass} shadow-xs ${className}`}
+      title={`Verdict Code: ${meta.code}`}
     >
       {showIcon && <Icon className={size === 'lg' ? 'w-5 h-5 shrink-0 stroke-[2.5]' : 'w-4 h-4 shrink-0 stroke-[2.5]'} />}
-      <span>{meta.label}</span>
+      <span className="flex flex-col text-left leading-tight">
+        <span>{meta.label}</span>
+        {size !== 'sm' && (
+          <span className="text-[10px] opacity-75 font-normal tracking-normal">{meta.code}</span>
+        )}
+      </span>
     </span>
   );
 };

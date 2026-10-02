@@ -6,9 +6,10 @@ import { ArrowUp, Mail } from 'lucide-react';
 interface FooterProps {
   onOpenContact: () => void;
   openPresenter: () => void;
+  isPresenterMode?: boolean;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenContact, openPresenter }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenContact, openPresenter, isPresenterMode = false }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -42,34 +43,34 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, openPresenter }) 
             <div className="font-mono text-white uppercase font-black text-xs tracking-wider mb-3">
               Navigation
             </div>
-            <ul className="space-y-2.5 text-slate-300 text-xs font-medium">
+            <ul className="space-y-1 text-slate-300 text-xs font-medium">
               <li>
-                <a href="#hero" className="hover:text-[#12C9D3] transition-colors">
+                <a href="#hero" className="hover:text-[#12C9D3] transition-colors min-h-[44px] inline-flex items-center py-1">
                   Overview &amp; Hero
                 </a>
               </li>
               <li>
-                <a href="#chaos-to-clean" className="hover:text-[#12C9D3] transition-colors">
+                <a href="#chaos-to-clean" className="hover:text-[#12C9D3] transition-colors min-h-[44px] inline-flex items-center py-1">
                   Chaos to Clarity
                 </a>
               </li>
               <li>
-                <a href="#simulator" className="hover:text-[#12C9D3] transition-colors">
+                <a href="#simulator" className="hover:text-[#12C9D3] transition-colors min-h-[44px] inline-flex items-center py-1">
                   Scenario Simulator (4 Archetypes)
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="hover:text-[#12C9D3] transition-colors">
+                <a href="#how-it-works" className="hover:text-[#12C9D3] transition-colors min-h-[44px] inline-flex items-center py-1">
                   Five-Layer Architecture
                 </a>
               </li>
               <li>
-                <a href="#industries" className="hover:text-[#12C9D3] transition-colors">
+                <a href="#industries" className="hover:text-[#12C9D3] transition-colors min-h-[44px] inline-flex items-center py-1">
                   Operational Archetypes
                 </a>
               </li>
               <li>
-                <a href="#pillars" className="hover:text-[#12C9D3] transition-colors">
+                <a href="#pillars" className="hover:text-[#12C9D3] transition-colors min-h-[44px] inline-flex items-center py-1">
                   Core Assurance Pillars
                 </a>
               </li>
@@ -81,22 +82,24 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, openPresenter }) 
             <div className="font-mono text-white uppercase font-black text-xs tracking-wider mb-3">
               Enterprise &amp; Pilots
             </div>
-            <ul className="space-y-2.5 text-slate-300 text-xs font-medium">
-              <li>
-                <button
-                  onClick={openPresenter}
-                  className="hover:text-[#12C9D3] transition-colors text-left cursor-pointer"
-                >
-                  Presenter Runbook &amp; Keybindings
-                </button>
-              </li>
+            <ul className="space-y-1 text-slate-300 text-xs font-medium">
+              {isPresenterMode && (
+                <li>
+                  <button
+                    onClick={openPresenter}
+                    className="hover:text-[#12C9D3] transition-colors text-left cursor-pointer min-h-[44px] inline-flex items-center py-1"
+                  >
+                    Presenter Runbook &amp; Keybindings
+                  </button>
+                </li>
+              )}
               <li>
                 <button
                   onClick={onOpenContact}
-                  className="hover:text-[#12C9D3] transition-colors text-left flex items-center gap-1.5 cursor-pointer font-bold text-[#00AABB]"
+                  className="hover:text-[#12C9D3] transition-colors text-left flex items-center gap-1.5 cursor-pointer font-bold text-[#00AABB] min-h-[44px] py-1"
                 >
                   <Mail className="w-3.5 h-3.5" />
-                  <span>Request Staging Pilot</span>
+                  <span>Request a pilot</span>
                 </button>
               </li>
               <li className="pt-2 text-slate-400 font-mono text-[11px]">
@@ -126,7 +129,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact, openPresenter }) 
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-lg bg-[#0F1722] hover:bg-[#1E2D3E] text-white border border-[#1E2D3E] hover:border-[#039EA5] transition-colors cursor-pointer"
+              className="w-11 h-11 min-w-[44px] min-h-[44px] rounded-lg bg-[#0F1722] hover:bg-[#1E2D3E] text-white border border-[#1E2D3E] hover:border-[#039EA5] transition-colors cursor-pointer flex items-center justify-center"
+              aria-label="Scroll to top"
               title="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />

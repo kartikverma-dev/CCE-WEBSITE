@@ -9,11 +9,13 @@ import {
 } from 'lucide-react';
 
 interface HeaderProps {
+  isPresenterMode?: boolean;
   openPresenter: () => void;
   onOpenContact: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
+  isPresenterMode = false,
   openPresenter,
   onOpenContact,
 }) => {
@@ -43,77 +45,82 @@ export const Header: React.FC<HeaderProps> = ({
         <nav className="hidden lg:flex items-center gap-8 text-[13px] font-semibold text-[#000000]">
           <button 
             onClick={() => scrollToSection('chaos-to-clean')} 
-            className="hover:text-[#039EA5] transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="hover:text-[#039EA5] transition-colors flex items-center gap-1.5 cursor-pointer min-h-[44px]"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#039EA5]" />
             <span>Chaos to Clean</span>
           </button>
           <button 
             onClick={() => scrollToSection('simulator')} 
-            className="hover:text-[#039EA5] transition-colors cursor-pointer"
+            className="hover:text-[#039EA5] transition-colors cursor-pointer min-h-[44px]"
           >
-            Simulator
+            Try the demo
           </button>
           <button 
             onClick={() => scrollToSection('how-it-works')} 
-            className="hover:text-[#039EA5] transition-colors cursor-pointer"
+            className="hover:text-[#039EA5] transition-colors cursor-pointer min-h-[44px]"
           >
             How CCE Works
           </button>
           <button 
             onClick={() => scrollToSection('industries')} 
-            className="hover:text-[#039EA5] transition-colors cursor-pointer"
+            className="hover:text-[#039EA5] transition-colors cursor-pointer min-h-[44px]"
           >
             Industries
           </button>
           <button 
             onClick={() => scrollToSection('pillars')} 
-            className="hover:text-[#039EA5] transition-colors cursor-pointer"
+            className="hover:text-[#039EA5] transition-colors cursor-pointer min-h-[44px]"
           >
             Core Pillars
           </button>
           <button
             onClick={onOpenContact}
-            className="hover:text-[#039EA5] transition-colors cursor-pointer"
+            className="hover:text-[#039EA5] transition-colors cursor-pointer min-h-[44px]"
           >
-            Pilot Request
+            Request a pilot
           </button>
         </nav>
 
         {/* Right Action Controls */}
         <div className="hidden sm:flex items-center gap-3">
-          {/* Presenter Mode Button */}
-          <button
-            onClick={openPresenter}
-            title="Open Presenter Script & Keyboard Shortcuts (Key: P)"
-            className="px-3 py-1.5 rounded-full border border-gray-300 bg-[#FDFEFD] text-[#1E1E1E] hover:text-[#039EA5] hover:border-[#039EA5] transition-all flex items-center gap-1.5 text-xs font-bold cursor-pointer"
-          >
-            <Presentation className="w-3.5 h-3.5 text-[#039EA5]" />
-            <span>Notes [P]</span>
-          </button>
+          {/* Presenter Mode Button - Only shown in presenter mode (?presenter=1) */}
+          {isPresenterMode && (
+            <button
+              onClick={openPresenter}
+              title="Open Presenter Script & Keyboard Shortcuts (Key: P)"
+              className="min-h-[44px] px-3.5 py-2 rounded-full border border-gray-300 bg-[#FDFEFD] text-[#1E1E1E] hover:text-[#039EA5] hover:border-[#039EA5] transition-all flex items-center gap-1.5 text-xs font-bold cursor-pointer"
+            >
+              <Presentation className="w-3.5 h-3.5 text-[#039EA5]" />
+              <span>Notes<span className="shortcut-hint"> [P]</span></span>
+            </button>
+          )}
 
-          {/* Primary Teal Pill Button (#00AABB) */}
+          {/* Primary Action Button (#00AABB) */}
           <button
             onClick={() => scrollToSection('simulator')}
-            className="px-4.5 py-1.5 rounded-full bg-[#00AABB] hover:bg-[#039EA5] text-white text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
+            className="min-h-[44px] px-4.5 py-2 rounded-full bg-[#00AABB] hover:bg-[#039EA5] text-white text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
           >
-            <span>Run Demo</span>
+            <span>Try the demo</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
         {/* Mobile / Tablet menu trigger */}
         <div className="flex items-center gap-2 lg:hidden">
-          <button
-            onClick={openPresenter}
-            className="p-2 rounded-lg border border-gray-300 bg-white text-[#1E1E1E] sm:hidden"
-            title="Presenter Notes"
-          >
-            <Presentation className="w-4 h-4 text-[#039EA5]" />
-          </button>
+          {isPresenterMode && (
+            <button
+              onClick={openPresenter}
+              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-gray-300 bg-white text-[#1E1E1E] sm:hidden cursor-pointer"
+              title="Presenter Notes"
+              aria-label="Presenter Notes"
+            >
+              <Presentation className="w-4 h-4 text-[#039EA5]" />
+            </button>
+          )}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg border border-gray-300 bg-white text-[#1E1E1E] cursor-pointer"
+            className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-gray-300 bg-white text-[#1E1E1E] cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -123,34 +130,34 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-gray-200 bg-white px-6 py-5 flex flex-col gap-4 animate-in slide-in-from-top duration-200 text-[#000000]">
+        <div className="lg:hidden border-b border-gray-200 bg-white px-6 py-5 flex flex-col gap-2 animate-in slide-in-from-top duration-200 text-[#000000]">
           <button 
             onClick={() => scrollToSection('chaos-to-clean')}
-            className="text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
+            className="min-h-[44px] flex items-center text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
           >
             Chaos to Clean
           </button>
           <button 
             onClick={() => scrollToSection('simulator')}
-            className="text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
+            className="min-h-[44px] flex items-center text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
           >
-            Scenario Simulator (4 Demos)
+            Try the demo
           </button>
           <button 
             onClick={() => scrollToSection('how-it-works')}
-            className="text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
+            className="min-h-[44px] flex items-center text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
           >
             How CCE Works
           </button>
           <button 
             onClick={() => scrollToSection('industries')}
-            className="text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
+            className="min-h-[44px] flex items-center text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
           >
             Industries
           </button>
           <button 
             onClick={() => scrollToSection('pillars')} 
-            className="text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
+            className="min-h-[44px] flex items-center text-left font-bold py-1 hover:text-[#039EA5] transition-colors"
           >
             Core Pillars
           </button>
@@ -159,32 +166,35 @@ export const Header: React.FC<HeaderProps> = ({
               setMobileMenuOpen(false);
               onOpenContact();
             }}
-            className="text-left font-bold text-[#039EA5] py-1"
+            className="min-h-[44px] flex items-center text-left font-bold text-[#039EA5] py-1 cursor-pointer"
           >
-            Request Enterprise Pilot
+            Request a pilot
           </button>
-          <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
-            <span className="text-xs font-mono text-[#008361] font-bold">
-              Presentation Mode: Active
-            </span>
-            <button
-              onClick={() => {
-                openPresenter();
-                setMobileMenuOpen(false);
-              }}
-              className="text-xs font-mono text-[#1E1E1E] py-1 font-bold hover:text-[#039EA5]"
-            >
-              Presenter Script [P]
-            </button>
-          </div>
+          {isPresenterMode && (
+            <div className="pt-2 border-t border-gray-100 flex items-center justify-between min-h-[44px]">
+              <span className="text-xs font-mono text-[#008361] font-bold">
+                Presentation Mode: Active
+              </span>
+              <button
+                onClick={() => {
+                  openPresenter();
+                  setMobileMenuOpen(false);
+                }}
+                className="text-xs font-mono text-[#1E1E1E] py-2 px-2 font-bold hover:text-[#039EA5] flex items-center"
+              >
+                <span>Presenter Script</span>
+                <span className="shortcut-hint"> [P]</span>
+              </button>
+            </div>
+          )}
           <button
             onClick={() => {
               scrollToSection('simulator');
               setMobileMenuOpen(false);
             }}
-            className="w-full py-2.5 rounded-full bg-[#00AABB] hover:bg-[#039EA5] text-white text-center font-bold text-xs shadow-sm"
+            className="w-full min-h-[44px] py-2.5 rounded-full bg-[#00AABB] hover:bg-[#039EA5] text-white text-center font-bold text-xs shadow-sm flex items-center justify-center cursor-pointer"
           >
-            Launch Demo Simulator
+            Try the demo
           </button>
         </div>
       )}

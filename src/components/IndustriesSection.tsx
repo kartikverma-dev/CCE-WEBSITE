@@ -34,7 +34,7 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({ onSelectSc
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 text-[#039EA5] text-xs font-mono font-bold mb-2 sm:mb-3 border border-teal-200">
               <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#039EA5]" />
-              <span>TESTED OPERATIONAL ARCHETYPES</span>
+              <span>OPERATIONAL ARCHETYPES</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#000000]">
               Governing Decisions Where Failure is Not an Option
@@ -107,7 +107,7 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({ onSelectSc
 
                   <button
                     onClick={() => handleRunScenario(idx)}
-                    className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#039EA5] group-hover:text-[#00AABB] transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 min-h-[44px] px-3.5 py-2 rounded-xl bg-teal-50/80 hover:bg-teal-100 text-xs font-extrabold text-[#039EA5] group-hover:text-[#00AABB] transition-colors cursor-pointer"
                   >
                     <span>Run in Simulator</span>
                     <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform stroke-[2.5]" />

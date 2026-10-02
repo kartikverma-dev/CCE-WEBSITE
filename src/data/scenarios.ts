@@ -7,10 +7,11 @@ export const SCENARIOS: Scenario[] = [
     title: 'Dynamic RAN Capacity Reallocation',
     tagline: 'Hero Scenario: Hospital SLA vs. Video Streaming Surge',
     badge: 'Flagship Demo',
+    humanStakes: 'Tens of thousands of fans in a packed sports stadium are streaming live video on their mobile phones. On the exact same cellular network site, Metropolitan Trauma Hospital relies on real-time ICU patient telemetry for emergency medical care.',
     summary: 'An autonomous RAN optimization model detects video congestion near a sports stadium and proposes shifting 18% cell spectrum, inadvertently encroaching on an emergency hospital telemetry slice.',
     sourceStatus: 'SIMULATED',
     aiRecommendation: {
-      action: 'Shift 18% spectrum capacity from Sub-band B to Consumer Video Slice #402',
+      action: 'Shift 18% spectrum capacity from general network traffic (Sub-band B) to the stadium video service (Slice #402)',
       modelType: 'Autonomous Deep-RL Traffic Optimizer v3.4',
       intendedBenefit: 'Eliminate 4K video buffering for 24,000 concurrent stadium subscribers',
       proposedMetricChange: '+18% bandwidth to Slice #402',
@@ -72,7 +73,7 @@ export const SCENARIOS: Scenario[] = [
         stepNumber: 4,
         title: 'Decision Routing & Provenance',
         status: 'PASSED',
-        summary: 'Enforced 5% limit. Armed 180s telemetry watcher. Generated immutable evidence record CCE-DEMO-2026-TEL-8041.',
+        summary: 'Enforced 5% limit. Armed 180s telemetry watcher. Generated a record of the decision: CCE-DEMO-2026-TEL-8041.',
         telemetryRef: 'AUDIT-EMIT-8041',
       },
     ],
@@ -99,7 +100,7 @@ export const SCENARIOS: Scenario[] = [
       evidenceStatus: 'SIMULATED',
     },
     presenterNarration: {
-      setup: 'At a busy stadium event, an autonomous AI model wants to move 18% of cellular capacity to consumer streaming. The model did its math well—consumer video will be silky smooth.',
+      setup: 'At a busy stadium event, an autonomous AI model wants to move 18% of cellular capacity to consumer streaming. The model did its math well - consumer video will be silky smooth.',
       theBlindSpot: 'What the model does not know is that the exact same radio carrier powers the trauma hospital telemetry next door. 18% would breach their critical SLA.',
       cceValuePitch: 'Instead of an outage or a blunt manual rejection, CCE intervenes deterministically. It limits the action to 5% staged capacity, protecting human lives while still boosting video speed.',
     },
@@ -110,6 +111,7 @@ export const SCENARIOS: Scenario[] = [
     title: 'Battery Fast-Turnaround & Route Dispatch',
     tagline: 'Physical Safety vs. Fleet Utilization',
     badge: 'Hardware & Asset Protection',
+    humanStakes: 'A commercial delivery depot needs electric vans turned around rapidly to meet same-day package delivery deadlines. However, an aging delivery van battery has degraded and risks physical thermal failure if forced through high-voltage fast charging.',
     summary: 'A fleet management AI recommends rapid 80kW DC fast-charging and immediate redelivery dispatch for delivery van EV-409, ignoring cumulative cell wear and abnormal thermal trends.',
     sourceStatus: 'SIMULATED',
     aiRecommendation: {
@@ -213,6 +215,7 @@ export const SCENARIOS: Scenario[] = [
     title: 'Anti-Money Laundering Account Restriction',
     tagline: 'Fraud Mitigation vs. Legitimate Business Continuity',
     badge: 'Financial Integrity & Continuity',
+    humanStakes: 'An automated banking safety model flags several high-value inbound transfers as potential money laundering and prepares to freeze an entire corporate account. But that same account is scheduled to disburse monthly payroll to 340 working families in less than two hours.',
     summary: 'An autonomous AML fraud model flags rapid inbound transfers and orders a complete commercial account freeze, unaware that scheduled employee payroll and vendor fuel payments are due today.',
     sourceStatus: 'SIMULATED',
     aiRecommendation: {
@@ -316,6 +319,7 @@ export const SCENARIOS: Scenario[] = [
     title: 'Automated Ransomware Host Containment',
     tagline: 'Cyber Defense vs. Life-Support Systems Dependency',
     badge: 'Mission-Critical Healthcare SecOps',
+    humanStakes: 'An autonomous security defense agent detects malware traffic on a hospital server and prepares to sever its network connection immediately. But that exact server powers real-time cardiac telemetry for 18 intensive care patients while the backup system is offline for maintenance.',
     summary: 'An autonomous cyber response agent detects lateral network scanning on Server Host #04 and triggers full network isolation, unmindful that Host #04 feeds cardiac telemetry and the secondary backup is offline.',
     sourceStatus: 'SIMULATED',
     aiRecommendation: {

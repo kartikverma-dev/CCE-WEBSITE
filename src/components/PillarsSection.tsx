@@ -9,8 +9,6 @@ import {
   Lock,
   Cpu
 } from 'lucide-react';
-import { StatusBadge } from './StatusBadge';
-
 export const PillarsSection: React.FC = () => {
   const pillars = [
     {
@@ -19,7 +17,7 @@ export const PillarsSection: React.FC = () => {
       subtitle: 'Dynamic Spectrum Protection',
       icon: Radio,
       desc: 'Protects hospital, emergency services, and smart-grid priority slices from autonomous capacity reallocations while maximizing consumer QoE.',
-      focus: 'O-RAN Alliance & 3GPP SLA Protection',
+      focus: 'Designed for O-RAN and 3GPP-based networks',
     },
     {
       num: '02',
@@ -32,17 +30,17 @@ export const PillarsSection: React.FC = () => {
     {
       num: '03',
       title: 'Statutory AI Compliance & Audit Ledger',
-      subtitle: 'Article 14 Human Oversight',
+      subtitle: 'Designed to support EU AI Act Article 14 human oversight requirements',
       icon: FileCheck2,
-      desc: 'Generates immutable cryptographic evidence records with exact rule references, model identities, and assigned human review roles for audit compliance.',
-      focus: 'EU AI Act & Global AI Governance Standards',
+      desc: 'Generates tamper-resistant cryptographic evidence records with exact rule references, model identities, and assigned human review roles for audit compliance.',
+      focus: 'Designed to support EU AI Act and global AI governance expectations',
     },
     {
       num: '04',
-      title: 'Surgical Mitigation Over Blunt Outages',
-      subtitle: 'Safe Operational Envelopes',
+      title: 'Applies targeted limits instead of full shutdowns',
+      subtitle: 'Original: Surgical Mitigation Over Blunt Outages',
       icon: ShieldCheck,
-      desc: 'Replaces blunt all-or-nothing shutdowns with staged bounds—restricting actions to 5% safe increments or targeted port filtering to maintain business continuity.',
+      desc: 'Uses staged limits where possible instead of all-or-nothing shutdowns - restricting actions to 5% safe increments or targeted port filtering to maintain business continuity.',
       focus: 'High-Availability Enterprise Actuation',
     },
   ];
@@ -57,7 +55,10 @@ export const PillarsSection: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5 text-[#039EA5]" />
               <span>CORE ARCHITECTURAL PILLARS</span>
             </span>
-            <StatusBadge status="VERIFIED" size="sm" />
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#008361]/10 border border-[#008361]/30 text-[#008361] text-xs font-mono font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#008361]" />
+              <span>ARCHITECTURE SPECIFICATION</span>
+            </span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-[#000000]">
@@ -71,19 +72,22 @@ export const PillarsSection: React.FC = () => {
           <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-2 sm:gap-3.5 text-xs font-mono">
             <div className="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-gray-200 text-[#1E1E1E] font-bold shadow-xs">
               <ShieldCheck className="w-4 h-4 text-[#039EA5]" />
-              <span>Zero Probabilistic Variance</span>
+              <span>Consistent, rule-based results</span>
             </div>
             <div className="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-gray-200 text-[#1E1E1E] font-bold shadow-xs">
               <Activity className="w-4 h-4 text-[#039EA5]" />
-              <span>Sub-Millisecond Policy Interception</span>
+              <span>Low-latency policy checks</span>
             </div>
             <div className="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-gray-200 text-[#1E1E1E] font-bold shadow-xs">
               <FileCheck2 className="w-4 h-4 text-[#00AABB]" />
-              <span>Statutory Compliance (EU AI Act Art. 14)</span>
+              <span>Designed to support EU AI Act Article 14 human oversight requirements</span>
             </div>
             <div className="flex items-center gap-2 p-2 sm:p-2.5 rounded-xl bg-white border border-gray-200 text-[#1E1E1E] font-bold shadow-xs">
-              <Lock className="w-4 h-4 text-[#039EA5]" />
-              <span>Immutable Cryptographic Audit Ledger</span>
+              <Lock className="w-4 h-4 text-[#039EA5] shrink-0" />
+              <div className="flex flex-col text-left">
+                <span>A tamper-resistant record of decisions</span>
+                <span className="text-[10px] text-gray-500 font-normal">Original: Immutable Cryptographic Audit Ledger</span>
+              </div>
             </div>
           </div>
         </div>
@@ -129,10 +133,13 @@ export const PillarsSection: React.FC = () => {
               ENTERPRISE RESILIENCE ARCHITECTURE
             </div>
             <div className="text-base sm:text-xl font-black text-white flex items-center gap-2">
-              <Cpu className="w-5 h-5 text-white" />
-              <span>Zero Black-Box Dependency · Deterministic Runtime Execution</span>
+              <Cpu className="w-5 h-5 text-white shrink-0" />
+              <span>Evaluates decisions against explicit, auditable rules</span>
             </div>
-            <p className="text-xs sm:text-sm text-teal-50 mt-1 max-w-xl font-normal leading-relaxed">
+            <div className="text-[11px] text-teal-100 font-mono mt-1">
+              Original: Zero Black-Box Dependency · Deterministic Runtime Execution
+            </div>
+            <p className="text-xs sm:text-sm text-teal-50 mt-1.5 max-w-xl font-normal leading-relaxed">
               Engineered specifically for mission-critical operations. Zero reliance on remote probabilistic models for decision verification; all statutory rules and physical envelopes evaluate deterministically inside your security perimeter.
             </p>
           </div>
@@ -140,7 +147,7 @@ export const PillarsSection: React.FC = () => {
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-xs font-mono font-bold px-3.5 py-2 rounded-xl bg-white text-[#00AABB] shadow-sm flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#00AABB] animate-pulse" />
-              <span>Deterministic Core v2.4</span>
+              <span>Deterministic Core Engine</span>
             </span>
           </div>
         </div>

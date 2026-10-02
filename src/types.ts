@@ -47,6 +47,7 @@ export interface Scenario {
   tagline: string;
   summary: string;
   badge: string;
+  humanStakes?: string;
   sourceStatus: StatusBadgeType;
   aiRecommendation: {
     action: string;
