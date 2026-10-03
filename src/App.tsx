@@ -5,6 +5,8 @@ import { ScenarioSimulator } from './components/ScenarioSimulator';
 import { HowItWorks } from './components/HowItWorks';
 import { IndustriesSection } from './components/IndustriesSection';
 import { PillarsSection } from './components/PillarsSection';
+import { MascotSection } from './components/MascotSection';
+import { MascotGuide } from './components/MascotGuide';
 import { PresenterModal } from './components/PresenterModal';
 import { ContactModal } from './components/ContactModal';
 import { WhatsAppButton } from './components/WhatsAppButton';
@@ -86,9 +88,18 @@ export function App() {
 
         {/* 5. Enterprise Architectural Pillars */}
         <PillarsSection />
+
+        {/* 6. The CredgeSol Guardian (Brand Mascot Spotlight) */}
+        <MascotSection onOpenContact={() => setIsContactOpen(true)} />
       </main>
 
-      {/* Floating WhatsApp Action Button (#008361) */}
+      {/* Floating Mascot Guide (Bottom-Left) */}
+      <MascotGuide 
+        isHidden={isPresenterOpen || isContactOpen || isEvidenceOpen}
+        onOpenContact={() => setIsContactOpen(true)}
+      />
+
+      {/* Floating WhatsApp Action Button (#008361, Bottom-Right) */}
       <WhatsAppButton isHidden={isPresenterOpen || isContactOpen || isEvidenceOpen} />
 
       {/* Footer */}
